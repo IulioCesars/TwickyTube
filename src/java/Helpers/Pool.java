@@ -104,7 +104,8 @@ public class Pool {
                 while(rs.next()){
                     Diccionario d = new Diccionario();
                     for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        d.elementos.put(rsmd.getColumnName(i), rs.getObject(i));
+                        Object parametro = rs.getObject(i) == null ? "NULL" : rs.getObject(i);
+                        d.elementos.put(rsmd.getColumnName(i), parametro);
                     }
                     result.add(d);
                 }

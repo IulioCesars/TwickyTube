@@ -1,0 +1,423 @@
+
+.idx-login
+{
+	animation-duration: 1s;
+	animation-name:idx-aparecer;
+	
+	display:block;
+	border-radius:5px;
+	overflow:auto;
+	width:38%;
+	margin:auto;
+	/*background:#3498db;*/
+	background:white;
+	font-size:20px;
+	color:#454545;
+	box-sizing:border-box;
+	padding-top:2%;
+	padding-bottom:2%;
+	margin-bottom:10%;
+	margin-top:80px;
+	/* SOMBRAS */
+	-webkit-box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 4px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 4px rgba(0,0,0,0.52);
+}
+.idx-singup
+{
+	display:none;
+	margin-top:50px;
+}
+.idx-login:hover, .idx-login:focus
+{
+	/* SOMBRAS */
+	-webkit-box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 8px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 8px rgba(0,0,0,0.52);
+}
+.idx-login form
+{
+	width:95%;
+	margin:auto;
+	box-sizing:border-box;
+	padding:1%;
+}
+
+
+
+
+.idx-login-img
+{
+	/*float:left;*/
+	width:100%;
+}
+.idx-login-gen-label
+{
+	width:100%;
+	display:block;
+	box-sizing:border-box;
+	margin-top:2%;
+	margin-bottom:1%;
+	font-size:18px;
+	
+}
+
+.idx-login-title
+{
+	padding:1.5%;
+	margin-bottom:3%;
+	padding-top:10%;
+	text-align:center;
+	font-size:25px;
+	font-weight:bold;
+
+}
+.idx-login-description
+{
+	padding:1.5%;
+	margin-bottom:3%;
+	color:#454545;
+}
+/*
+.idx-login form label
+{
+	
+}
+*/
+
+
+.idx-login form a 
+{
+	margin-top:4%;
+	
+	text-decoration:none;
+	font-size:17px;
+	text-align:center;
+	width:100%;
+	float:left;
+	color:#757575;
+}
+.idx-login form a:hover
+{
+	color:#454545;
+}
+
+.idx-login p
+{
+	float:left;
+	padding:4%;
+	box-sizing:border-box;
+	width:100%;
+}
+
+
+/* PAGINA ABOUT */
+.abt-members
+{
+	width:50%;
+	background-color:none;
+	float:left;
+	text-align:center;
+	padding:2%;
+	box-sizing:border-box;
+}
+.abt-members img
+{
+	width:50%;
+	border-radius:50%;
+	
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 2px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 2px rgba(0,0,0,0.52);
+}
+.abt-members > p > label
+{
+	margin-bottom:0px;
+	font-size:130%;
+	float:left;
+	width:100%;
+}
+.abt-members > p
+{
+	font-size:80%;
+}
+
+/* PAGINA DASHBOARD */
+.dbd-main
+{
+	width:98%;
+	
+}
+.dbd-start
+{
+	width:98%;
+	margin:auto;	
+	overflow:auto;
+	margin-top:2%;
+	margin-bottom:4%;
+	-webkit-box-shadow: 0px 0px 1px 0.2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 1px 0.2px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 1px 0.2px rgba(0,0,0,0.52);
+}
+.dbd-start:hover
+{
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 2px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 2px rgba(0,0,0,0.52);
+}
+
+.dbd-start-title
+{
+	margin-top:0px;
+	padding:1%;
+	color:white;
+	background-color:#2980B9;
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 2px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 2px rgba(0,0,0,0.52);
+}
+.dbd-start-span
+{
+	float:left;
+	width:20%;
+	padding:1%;
+	/*margin:1%;*/
+	border:1px;
+	box-sizing:border-box;
+	cursor:pointer;
+
+}
+.dbd-start-span *
+{
+	cursor:pointer;
+}
+
+.dbd-start-video-label
+{
+	float:left;
+	text-decoration:none;
+	cursor:pointer;
+	width:100%;
+	padding:1.5%;
+	
+	color:#454545;
+	
+	-webkit-box-shadow: 0px 0px 1px 0.2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 1px 0.2px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 1px 0.2px rgba(0,0,0,0.52);
+}
+.dbd-start-video-label:hover
+{
+	
+	cursor:pointer;
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 5px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 5px rgba(0,0,0,0.52);
+}
+
+
+.dbd-start-video-label-content
+{
+	width:100%;
+	height:100px;
+}
+.dbd-start-video-label-title
+{
+	font-size:90%;
+	width:100%;
+	
+	float:left;
+}
+.dbd-start-video-label-user
+{
+	font-size:70%;
+	width:100%;
+	
+	
+	box-sizing:border-box;
+	
+	
+}
+/* PAGINA VIDEO */
+.vid-main
+{
+	
+	width:70%;
+	clear:both;
+	padding:2%;
+	box-sizing:border-box;
+}
+.vid-main-content
+{
+	width:100%;
+	
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	0px 0px 10px 5px rgba(0,0,0,0.1);
+	box-shadow: 		0px 0px 10px 5px rgba(0,0,0,0.1);
+}
+
+.vid-main-sub
+{
+	overflow:auto;
+	width:100%;
+	padding:1%;
+	box-sizing:border-box;
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+	-moz-box-shadow: 	0px 0px 10px 5px rgba(0,0,0,0.1);
+	box-shadow: 		0px 0px 10px 5px rgba(0,0,0,0.1);
+	
+}
+.vid-main-title
+{
+	font-size:140%;
+	width:100%;
+
+}
+.vid-main-subcontent
+{
+	float:left;
+	overflow:auto;
+	width:50%;
+	padding:1%;
+	box-sizing:border-box;
+}
+
+.vid-main-sub-img
+{
+	height:60px;
+	width:60px;
+	float:left;
+	margin-right:2%;
+}
+
+.vid-main-sub-name
+{
+	
+	width:50%;
+	display:flex;
+	vertical-align:top;
+	padding:1%;
+	box-sizing:border-box;
+}
+.vid-main-sub-button
+{
+	color:white;
+	background-color:#3090B0;
+	display:flex;
+	vertical-align:bottom;
+	box-sizing:border-box;
+	padding:1%;
+}
+
+/* ANIMACIONES */
+@keyframes idx-aparecer
+{
+	from 
+	{
+		opacity:0;
+	}
+	to
+	{
+		opacity:1;
+	}
+}
+
+/* RESPONSIVIDAD */
+@media screen and (max-width: 800px)  
+{
+	.idx-login
+	{
+		width:80%;
+		margin-top:70px;
+		/*background-color:red;*/
+		font-size:95%;
+	}
+	
+	.abt-members p > label
+	{
+		font-size:150%;
+		width:100%;
+		font-weight:bold;
+		
+		display:inline-block;
+		box-sizing:border-box;
+		padding-top:1%;
+		padding-bottom:1%;
+	}
+	.dbd-start-title
+	{
+		font-size:120%;
+	}
+	.dbd-start-span
+	{
+		font-size:120%;
+		width:50%;
+	}
+	.dbd-start-video-label-content
+	{
+		height:130px;
+	}
+	.vid-main
+	{
+		width:100%;
+	}
+	.vid-main-sub-img
+	{
+		width:40px;
+		height:40px;
+	}
+}
+@media screen and (max-width: 512px)  {
+    .idx-login
+	{
+		width:95%;
+		margin-top:60px;
+		/*background-color:red;*/
+		font-size:85%;
+		
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 	0px 0px 10px 2px rgba(0,0,0,0.52);
+	box-shadow: 		0px 0px 10px 2px rgba(0,0,0,0.52);
+	}
+	.abt-members
+	{
+		width:100%;
+	}
+	.abt-members p > label
+	{
+		font-size:200%;
+		width:100%;
+		font-weight:bold;
+		
+		display:inline-block;
+		box-sizing:border-box;
+		padding-top:1%;
+		padding-bottom:1%;
+	}
+	.dbd-start-title
+	{
+		font-size:150%;
+	}
+	.dbd-start-span
+	{
+		font-size:150%;
+		width:100%;
+	}
+	.dbd-start-video-label-content
+	{
+		height:200px;
+	}
+	.vid-main-title
+	{
+		font-size:120%;
+	}
+	.vid-main
+	{
+		width:100%;
+	}
+	.vid-main-sub-img
+	{
+		width:40px;
+		height:40px;
+	}
+}
