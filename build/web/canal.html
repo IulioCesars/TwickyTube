@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> There's A Cat Licking Your Birthday Cake </title>
+		<title> Dashboard </title>
 		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href='css/glob-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
 		<link href='css/idx-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
 		
 		<script src="js/idx-js.js?v=1" type="text/javascript" ></script>
-		<script src='js/vid-obtenerURL.js?v=1.1.1' type="text/javascript"></script>
+		
 
 	</head>
 	<body>
 		<header>
 			<nav class='glob-header'>
 				<form>
-					<a class='glob-header-logo' href='dashboard.html'> <img src='resources/images/TwickyTube_01.png'> </a>
+					<a class='glob-header-logo' href='index.html'> <img src='resources/images/TwickyTube_01.png'> </a>
 					<a href='#'></a>
 					<a href='#'></a>
 					
 					<button type='button' onclick="mostrar(true,'MENU-OPC-02');" class='glob-header-menu'> &#8801; </button>
 					<button type='button' onclick="mostrar(true,'MENU-OPC-01');" class='glob-header-avatar-button' type='button'> <img  class='glob-header-avatar-img' src='resources/images/esteban.jpg'/></button>
 					<div class='glob-header-search'>
-					<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
+						<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
 					<input class='glob-header-search-input' type='search' placeholder='Buscar...' />
 					</div>
 				</form>
@@ -39,36 +39,33 @@
 				<li> Subir un video </li>
 				<li> Cambiar mi avatar </li>
 				<li> Cambiar mi portada </li>
+				
 			</ul>
 		</header>
 
-		
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 			<div id='idx-login' class='idx-login dbd-main'>
-				<div class='vid-main'>
-					<video class='vid-main-content' controls> 
-						<source src='resources/video/video_01.mp4'> 
-					</video>
-					
-					<div class='vid-main-sub'>
-						<label class='idx-login-gen-label vid-main-title'> There's A Cat Licking Your Birthday Cake </label>
-						
-						
-						<span class='vid-main-subcontent'>
-							<img class='vid-main-sub-img' src='resources/images/esteban.jpg'/>
-						
-							<label class='vid-main-sub-name'> Parrygripp </label>
-							<button type='button' class='vid-main-sub-button' onclick='mostrar_x();'> Suscribirse </button>
-						
-						</span>
-						
+				<div class='dbd-start'>
+					<label class='idx-login-gen-label dbd-start-title'> Ultimos videos </label>
+					<span class='dbd-start-span'>
+						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
+							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
+							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
+							<label class='dbd-start-video-label-user'> Parrygripp </label> 
+						</a>
+					</span>
 					</div>
-					
-					
+					<div class='dbd-start'>
+					<label class='idx-login-gen-label dbd-start-title'> Videos más populares </label>
+					<span class='dbd-start-span'>
+						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
+							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
+							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
+							<label class='dbd-start-video-label-user'> Parrygripp </label> 
+						</a>
+					</span>
 				</div>
 			</div>
-			
-			
 		</section>
 		
 

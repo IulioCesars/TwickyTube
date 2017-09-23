@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href='css/glob-style.css' type='text/css' rel='stylesheet'>
 		<link href='css/idx-style.css' type='text/css' rel='stylesheet'>
-		<script type="text/javascript" src="js/idx-js.js"></script>
+		<script type="text/javascript" src="js/idx-js.js?v=1.1.1"></script>
 	</head>
 	<body>
 <!--		<header>
@@ -23,12 +23,12 @@
 			<div id='idx-login' class='idx-login'>
 				<img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>				
 				<label class='idx-login-gen-label idx-login-title'> Inicio de sesión </label>
-                                <form  action='IniciarSesion' method="POST">
-					<input name = "correo" class='glob-object-input' type='email' placeholder='Correo Electronico' />
-					<input name = "contrasena" class='glob-object-input' type='password' placeholder='Contraseña' />
-					<label class='idx-login-gen-label idx-login-description'><input type='checkbox'/> Recordar contraseña</label>
-					<input  class='glob-object-submit glob-object-submit-left' type='submit' value='Iniciar sesión'/>
-					<button class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(true, 'LOG-REG');"> Registro de usuario </button>	
+				<form  action='dashboard.html'>
+					<input id='idx-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico' />
+					<input id='idx-psw-contrasenia' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña' />
+					<label class='idx-login-gen-label idx-login-description'><input id='idx-recordar' name='recordar' type='checkbox'/> Recordar contraseña</label>
+					<input id='idx-btn-iniciar-sesion' name='iniciar-sesion' class='glob-object-submit glob-object-submit-left' type='submit' value='Iniciar sesión'/>
+					<button id='idx-btn-registrar' name='registrar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(true, 'LOG-REG');"> Registro de usuario </button>	
 					<a href='recovery.html'> ¿Olvidaste tu contraseña? </a>
 				</form>
 				
@@ -37,16 +37,16 @@
 			<hr> 
 
 			<div id='idx-singup' class='idx-singup idx-login'>
-				<img class='idx-login-img' src='resources/TwickyTube_01.png'/>
+				<img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>
 				<label class='idx-login-gen-label idx-login-title'> Registro de usuario </label>
 				<form>
-					<input class='glob-object-input' type='text' placeholder='Alias'/>
-					<input class='glob-object-input' type='email' placeholder='Correo Electronico'/>
-					<input class='glob-object-input' type='password' placeholder='Contraseña'/>
-					<label class='idx-login-gen-label idx-login-description'>Fecha de Nacimiento <br> <input class='glob-object-input' type='date'/> </label>
+					<input id='reg-txt-alias' name='alias' class='glob-object-input' type='text' placeholder='Alias'/>
+					<input id='reg-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico'/>
+					<input id='reg-psw-contrasenia' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña'/>
+					<label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>Fecha de Nacimiento <br> <input class='glob-object-input' type='date'/> </label>
 					<label class='idx-login-gen-label idx-login-description'>
 					Genero
-					<select class='glob-object-input'> 
+					<select id='reg-sel-genero' name='genero' class='glob-object-input'> 
 						<option> Masculino </option>
 						<option> Femenino </option>
 						<option> Prefiero no especificar </option>
@@ -55,7 +55,7 @@
 
 					<label class='idx-login-gen-label idx-login-description'>
 					Ciudad
-					<select class='glob-object-input'> 
+					<select id='reg-sel-ciudad' name='ciudad' class='glob-object-input'> 
 						<option> Apodaca </option>
 						<option> Ciénega de Flores </option>
 						<option> Escobedo </option>
@@ -70,16 +70,16 @@
 
 					<label class='idx-login-gen-label idx-login-description'>
 					Pais
-					<select class='glob-object-input'>
+					<select id='reg-sel-pais' name='pais' class='glob-object-input'>
 						<option> México </option>
 						<option> Estados Unidos de América</option>
 					</select>
 					</label>
 
-					<input class='glob-object-input' type='file'>
-					<input class='glob-object-input' type='file'>
-					<input class='glob-object-submit glob-object-submit-left' type='submit' value='Registrarme'/>
-					<button class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(false, 'LOG-REG');"> Regresar </button>	
+					<input id='reg-img-avatar' name='img-avatar' class='glob-object-input' type='file'>
+					<input id='reg-img-portada' name='img-portada' class='glob-object-input' type='file'>
+					<input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-left' type='submit' value='Registrarme'/>
+					<button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(false, 'LOG-REG');"> Regresar </button>	
 				</form>
 			</div>
 		</section>
