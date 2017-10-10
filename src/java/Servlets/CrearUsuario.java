@@ -1,40 +1,61 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
 import ADO.UsuarioADO;
 import Helpers.Rutas;
+import Helpers.Util;
 import VO.Usuario;
 import com.mysql.jdbc.StringUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.format.DateTimeFormatter;
+import java.lang.Object;
+import java.sql.Timestamp;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "IniciarSesion", urlPatterns = {"/IniciarSesion"})
-public class IniciarSesion extends HttpServlet {
+/**
+ *
+ * @author IulioCesar
+ */
+public class CrearUsuario extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+
+        Usuario usuario = new Usuario();
         
-        String correo = request.getParameter("correo");
-        String contraseña = request.getParameter("contrasenia");
+        usuario.id_usuario = request.getParameter("alias");
+        usuario.correo = request.getParameter("correo");
+        usuario.contraseña = request.getParameter("contrasena");
+        usuario.fecha_nacimiento = Util.convertStringToTimestamp(request.getParameter("fecha_nacimiento"));
+        usuario.genero = request.getParameter("genero").substring(0, 1);
+        usuario.avatar = null;
+        usuario.portada = null;
+
+        String respuesta = UsuarioADO.CrearUsuario(usuario);
         
-        if(StringUtils.isNullOrEmpty(correo) && StringUtils.isNullOrEmpty(contraseña)){
-            response.sendRedirect(Rutas.LoginIncorrecto);
-            return;
-        }
+        if(respuesta == "OK")
+            response.sendRedirect(Rutas.Login);
+        else
+            response.sendRedirect(Rutas.CrearUsuarioFallido + respuesta);
         
-        Usuario usuario = UsuarioADO.IniciarSesion(correo, contraseña);
-     
-        if(usuario != null){
-            response.sendRedirect(Rutas.Dashboard);
-        }else{
-            response.sendRedirect(Rutas.LoginIncorrecto);
-            return;
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

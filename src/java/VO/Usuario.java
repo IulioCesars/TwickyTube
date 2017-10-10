@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  */
 public class Usuario extends EntidadGenerica{
     public String id_usuario;
-    public String email;
+    public String correo;
     public String contraseña;
     public Timestamp fecha_nacimiento;
     public String genero;
@@ -27,9 +27,9 @@ public class Usuario extends EntidadGenerica{
     
     public Usuario(Diccionario usr){
         this.id_usuario = (String) super.ObtenerValor(usr.elementos.get("id_usuario"));
-        this.email = (String) super.ObtenerValor(usr.elementos.get("email"));
+        this.correo = (String) super.ObtenerValor(usr.elementos.get("correo"));
         this.contraseña = (String) super.ObtenerValor(usr.elementos.get("contraseña"));
-        this.fecha_nacimiento = (Timestamp) super.ObtenerValor(usr.elementos.get("fecha_nacimiento"));
+        //this.fecha_nacimiento = (Timestamp) super.ObtenerValor(usr.elementos.get("fecha_nacimiento"));
         this.genero = (String) super.ObtenerValor(usr.elementos.get("genero"));
         this.avatar = (Image) super.ObtenerValor(usr.elementos.get("avatar"));
         this.portada = (Image) super.ObtenerValor(usr.elementos.get("portada"));

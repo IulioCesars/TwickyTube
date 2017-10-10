@@ -1,59 +1,53 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		 <script>
-            function validacionCamposVacios()
-            {
-                if (document.getElementById('reg-psw-contrasenia-01').value == document.getElementById('reg-psw-contrasenia-02').value) 
-                {
-                    return true;
-                }
-                else 
-                {
-                    alert('LAS CONTRASEÑAS NO COINCIDEN, vuelve a escribirlas u.u'); 
-                    return false;
-                }
-            }
-		</script>
-		<title> Inicio de sesion </title>
+		<title> Perfil </title>
 		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href='css/glob-style.css' type='text/css' rel='stylesheet'>
-		<link href='css/idx-style.css' type='text/css' rel='stylesheet'>
-		<script type="text/javascript" src="js/idx-js.js?v=1.1.2"></script>
+		<link href='css/glob-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
+		<link href='css/idx-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
+		
+		<script src="js/idx-js.js?v=1" type="text/javascript" ></script>
+		
+
 	</head>
 	<body>
-<!--		<header>
+		<header>
 			<nav class='glob-header'>
-				<a href='#'> <img src='resources/TwickyTube_01.png'> </a>
-				<a href='#'></a>
-				<a href='#'></a>
-				<a href='#'></a>
-				<a href='#'></a>
-			</nav>
-		</header>
--->
-		<section>
-			<div id='idx-login' class='idx-login'>
-				<img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>				
-				<label class='idx-login-gen-label idx-login-title'> Inicio de sesión </label>
-                                <form action="dashboard.html" method="POST">
-					<input id='idx-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico' />
-					<input id='idx-psw-contrasenia' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña' />
-					<label class='idx-login-gen-label idx-login-description'><input id='idx-recordar' name='recordar' type='checkbox'/> Recordar contraseña</label>
-					<input id='idx-btn-iniciar-sesion' name='iniciar-sesion' class='glob-object-submit glob-object-submit-left' type='submit' value='Iniciar sesión'/>
-					<button id='idx-btn-registrar' name='registrar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(true, 'LOG-REG');"> Registro de usuario </button>	
-					<a href='recovery.html'> ¿Olvidaste tu contraseña? </a>
+				<form>
+					<a class='glob-header-logo' href='dashboard.html'> <img src='resources/images/TwickyTube_01.png'> </a>
+					<a href='#'></a>
+					<a href='#'></a>
+					
+					<button type='button' onclick="mostrar(true,'MENU-OPC-02');" class='glob-header-menu'> &#8801; </button>
+					<button type='button' onclick="mostrar(true,'MENU-OPC-01');" class='glob-header-avatar-button' type='button'> <img  class='glob-header-avatar-img' src='resources/images/esteban.jpg'/></button>
+					<div class='glob-header-search'>
+						<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
+					<input class='glob-header-search-input' type='search' placeholder='Buscar...' />
+					</div>
 				</form>
+			</nav>
+			<ul id='glob-header-menu-02' class='glob-header-menu-list'>
+				<li><a href='canal.html'> Mi canal </a></li>
+				<li><a href='perfil.html'> Mi perfil </a></li>
+				<li><a href='favoritos.html'> Favoritos </a></li>
+				<li><a href='subscripciones.html'> Subscripciones </a></li>
+				<li><a href='subscriptores.html'> Subscriptores </a></li>
+				<li> Cerrar sesión </li>
+			</ul>
+			<ul id='glob-header-menu-01' class='glob-header-menu-list'>
+				<li> Subir un video </li>
+				<li> Cambiar mi avatar </li>
+				<li> Cambiar mi portada </li>
 				
-			</div>
+			</ul>
+		</header>
 
-			<hr> 
-
-			<div id='idx-singup' class='idx-singup idx-login'>
-				<img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>
-				<label class='idx-login-gen-label idx-login-title'> Registro de usuario <br><b> Obligatorio *<b></label>
-				<form  method='POST' enctype='multipart/form-data' onsubmit='return validacionCamposVacios(this);'>
+		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
+			<div id='idx-login' class='idx-login dbd-main'>
+				<div class='dbd-start'>
+					<label class='idx-login-gen-label dbd-start-title'> Tu perfil </label>
+					<span class='dbd-start-span per-start'>
 					<input id='reg-txt-alias' name='alias' class='glob-object-input' type='text' placeholder='Alias *'/>
 					<input id='reg-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico *'/>
 					<input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña'/>
@@ -103,9 +97,13 @@
 					</label>
 					<input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-left' type='submit' value='Registrarme'/>
 					<button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(false, 'LOG-REG');"> Regresar </button>	
-				</form>
+					</span>
+					</div>
+					
 			</div>
 		</section>
+		
+
 
 		<footer>
 			<div class='glob-footer'>

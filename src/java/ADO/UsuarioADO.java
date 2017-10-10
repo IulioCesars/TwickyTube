@@ -21,4 +21,23 @@ public class UsuarioADO {
         }
         return resultado;
     }
+    
+    public static String CrearUsuario(Usuario usuario){
+        String resultado = "";
+        
+        // Resultados
+        // 0 = OK | 1 = Error Usuario | 2 = Error Correo
+        resultado = (String) Pool.EjecutarStoredProcedureSimple("CrearUsuario", 
+                                new Object[] { usuario.id_usuario ,
+                                               usuario.correo,
+                                               usuario.contraseña,
+                                               null,
+                                               usuario.genero,
+                                               null,
+                                               null
+                                            });
+        
+        
+        return resultado;
+    }
 }

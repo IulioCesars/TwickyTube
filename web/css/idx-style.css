@@ -109,6 +109,11 @@
 	box-sizing:border-box;
 	width:100%;
 }
+.reg-output-img-portada
+{
+	width:100%;
+	float:left;
+}
 
 
 /* PAGINA ABOUT */
@@ -236,6 +241,25 @@
 	box-sizing:border-box;
 	
 	
+}
+/* PAGINA PERFIL */
+.per-start
+{
+	width:100%;
+}
+.per-start .glob-object-input
+{
+	width:30%;
+	padding:1%;
+	
+}
+.per-start .idx-login-gen-label
+{
+	width:30%;
+}
+.per-start .idx-login-gen-label .glob-object-input
+{
+	width:100%;
 }
 /* PAGINA VIDEO */
 .vid-main

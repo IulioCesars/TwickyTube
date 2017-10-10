@@ -72,10 +72,79 @@ public class Pool {
         return result;
     }
     
+    public static Object EjecutarQuerySimple(String query){
+        IniciarPool();
+        Object result = null;
+        java.sql.Connection cn = null;
+        try {
+            cn= dataSource.getConnection();
+            if(cn!=null){
+                Statement st = cn.createStatement();
+                ResultSet rs = st.executeQuery(query);
+                ResultSetMetaData rsmd = rs.getMetaData();
+                rs.next();
+                result = rs.getObject(0);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+            result = null;
+        }finally{
+                try {
+                    cn.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                    result = null;
+                }
+        }
+        return result;
+    }
+    
+    public static Object EjecutarStoredProcedureSimple(String stored, Object[] args){
+        IniciarPool();
+        Object result = null;
+        java.sql.Connection cn = null;
+        String params = "";
+        for (int i = 0; i < args.length; i++) {
+            if(args.length == 1) { params += "(?)"; continue;}
+            if(i==0) {params += "(?"; continue;}
+            params += ", ?";
+            if(i== args.length - 1){ params += ")"; continue; }
+        }
+        try {
+            cn= dataSource.getConnection();
+            if(cn!=null){
+                CallableStatement proc = null;
+                proc = cn.prepareCall("{ call " + db + "." + stored + params +" }"); 
+                
+                for (int i=0; i<args.length; i++) {
+                    proc.setObject(i+1, args[i]);
+                    
+                }
+                
+                ResultSet rs = proc.executeQuery();
+                ResultSetMetaData rsmd = rs.getMetaData();
+                
+                rs.next();
+                result = rs.getObject(0);
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            result = null;
+        }finally{
+                try {
+                    cn.close();
+                } catch (SQLException ex) {
+                    System.out.println(ex);
+                    result = null;
+                }
+        }
+        return result;
+    }
+    
     public static List<Diccionario> EjecutarStoredProcedure(String query){
         return EjecutarStoredProcedure(query, null);
     }
-    
     public static List<Diccionario> EjecutarStoredProcedure(String stored, Object[] args){
         IniciarPool();
         List<Diccionario> result = new ArrayList<Diccionario>();

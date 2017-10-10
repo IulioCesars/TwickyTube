@@ -8,6 +8,9 @@ function mostrar(activo, objeto)
 		{
 			if(activo)
 			{
+				document.getElementById("reg-txt-correo").value = document.getElementById("idx-txt-correo").value;
+				document.getElementById("reg-psw-contrasenia-01").value = document.getElementById("idx-psw-contrasenia").value;
+				
 				document.getElementById("idx-login").style = "display:none";
 				document.getElementById("idx-singup").style = "display:block";
 			}
@@ -15,6 +18,7 @@ function mostrar(activo, objeto)
 			{
 				document.getElementById("idx-singup").style = "display:none";
 				document.getElementById("idx-login").style = "display:block";
+				
 			}
 			break;
 		}
