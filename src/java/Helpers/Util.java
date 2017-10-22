@@ -9,7 +9,9 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -17,17 +19,20 @@ import java.util.Date;
  */
 public class Util {
     public static Timestamp convertStringToTimestamp(String str_date) {
-    try {
-      DateFormat formatter;
-      formatter = new SimpleDateFormat("dd/MM/yyyy");
-       // you can change format of date
-      Date date = formatter.parse(str_date);
-      java.sql.Timestamp timeStampDate = new Timestamp(date.getTime());
+        List<String> formatos = Arrays.asList("dd/MM/yyyy", "yyyy-MM-dd");        
+        if(str_date == null || str_date.isEmpty()){ return null; }
 
-      return timeStampDate;
-    } catch (ParseException e) {
-      System.out.println("Exception :" + e);
-      return null;
-    }
+        for(String formato : formatos){
+            try {
+                DateFormat formatter;
+                formatter = new SimpleDateFormat(formato);
+                 // you can change format of date
+                Date date = formatter.parse(str_date);
+                java.sql.Timestamp timeStampDate = new Timestamp(date.getTime());
+
+                return timeStampDate;
+            } catch (ParseException e) {}
+        }
+        return null;
   }
 }

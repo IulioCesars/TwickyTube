@@ -7,6 +7,8 @@ package ADO;
 import Helpers.Pool;
 import Helpers.Diccionario;
 import VO.Usuario;
+import java.io.IOException;
+import java.sql.Blob;
 import java.util.List;
 /**
  *
@@ -22,22 +24,24 @@ public class UsuarioADO {
         return resultado;
     }
     
-    public static String CrearUsuario(Usuario usuario){
+    public static String CrearUsuario(Usuario usuario) throws IOException{
         String resultado = "";
-        
         // Resultados
         // 0 = OK | 1 = Error Usuario | 2 = Error Correo
         resultado = (String) Pool.EjecutarStoredProcedureSimple("CrearUsuario", 
                                 new Object[] { usuario.id_usuario ,
                                                usuario.correo,
                                                usuario.contraseña,
-                                               null,
+                                               usuario.fecha_nacimiento.toString(),
                                                usuario.genero,
-                                               null,
-                                               null
+                                               usuario.ciudad,
+                                               usuario.pais,
+                                               usuario.partAvatar.getInputStream(),
+                                               usuario.partPortada.getInputStream()
                                             });
         
         
         return resultado;
     }
+    
 }

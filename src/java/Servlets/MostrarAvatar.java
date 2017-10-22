@@ -6,48 +6,47 @@
 package Servlets;
 
 import ADO.UsuarioADO;
-import Helpers.Rutas;
-import Helpers.Util;
-import VO.Usuario;
-import com.mysql.jdbc.StringUtils;
+import Helpers.Diccionario;
+import Helpers.Pool;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.time.format.DateTimeFormatter;
-import java.lang.Object;
-import java.sql.Timestamp;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import sun.misc.IOUtils;
 
-@MultipartConfig
-public class CrearUsuario extends HttpServlet {
+@WebServlet(name = "MostrarAvatar", urlPatterns = {"/MostrarAvatar"})
+public class MostrarAvatar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-
-        Usuario usuario = new Usuario();
+            throws ServletException, IOException, SQLException {
+        String idUsuario = request.getParameter("id");
+        byte[] bytesImagen;
+        String formato;
         
-        usuario.id_usuario = request.getParameter("alias");
-        usuario.correo = request.getParameter("correo");
-        usuario.contraseña = request.getParameter("contrasenia");
-        usuario.fecha_nacimiento = Util.convertStringToTimestamp(request.getParameter("fechaNacimiento"));
-        usuario.genero = request.getParameter("genero").substring(0, 1);
-        usuario.ciudad = request.getParameter("ciudad");
-        usuario.pais = request.getParameter("pais");
-        
-        usuario.partAvatar = request.getPart("img-avatar");
-        usuario.partPortada = request.getPart("img-portada");
-        
-        String respuesta = UsuarioADO.CrearUsuario(usuario);
-        
-        if(respuesta == "OK")
-            response.sendRedirect(Rutas.Login);
-        else
-            response.sendRedirect(Rutas.CrearUsuarioFallido + respuesta);
+        if(idUsuario != null && !idUsuario.isEmpty()){
+            
+            List<Diccionario> resultado = Pool.EjecutarStoredProcedure("MostrarAvatar",new Object[]{ idUsuario });
+            if(resultado==null){
+                //return null;
+            }
+            
+            bytesImagen = (byte[]) resultado.get(0).elementos.get("avatar");
+            formato = (String)resultado.get(0).elementos.get("formato_avatar");
+            
+            
+            response.setContentType(formato);
+            OutputStream out = response.getOutputStream();
+            out.write(bytesImagen);
+            out.flush();
+            out.close();
+        }
         
     }
 
@@ -63,7 +62,11 @@ public class CrearUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(MostrarAvatar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -77,7 +80,11 @@ public class CrearUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(MostrarAvatar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

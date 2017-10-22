@@ -5,8 +5,10 @@
  */
 package VO;
 import Helpers.Diccionario;
+import Helpers.Util;
 import java.awt.Image;
 import java.sql.Timestamp;
+import javax.servlet.http.Part;
 /**
  *
  * @author IulioCesar
@@ -17,8 +19,12 @@ public class Usuario extends EntidadGenerica{
     public String contraseña;
     public Timestamp fecha_nacimiento;
     public String genero;
-    public Image avatar;
-    public Image portada;
+    public String ciudad;
+    public String pais;
+    public Part partAvatar;
+    public String formato_avatar;
+    public Part partPortada;
+    public String formato_portada;
     public String perfil;
     
     public Usuario(){
@@ -29,10 +35,10 @@ public class Usuario extends EntidadGenerica{
         this.id_usuario = (String) super.ObtenerValor(usr.elementos.get("id_usuario"));
         this.correo = (String) super.ObtenerValor(usr.elementos.get("correo"));
         this.contraseña = (String) super.ObtenerValor(usr.elementos.get("contraseña"));
-        //this.fecha_nacimiento = (Timestamp) super.ObtenerValor(usr.elementos.get("fecha_nacimiento"));
+        this.fecha_nacimiento = (Timestamp) super.ObtenerValor(usr.elementos.get("fecha_nacimiento"));
         this.genero = (String) super.ObtenerValor(usr.elementos.get("genero"));
-        this.avatar = (Image) super.ObtenerValor(usr.elementos.get("avatar"));
-        this.portada = (Image) super.ObtenerValor(usr.elementos.get("portada"));
+        this.ciudad = (String) super.ObtenerValor(usr.elementos.get("ciudad"));
+        this.pais = (String) super.ObtenerValor(usr.elementos.get("pais"));
         this.perfil = (String) super.ObtenerValor(usr.elementos.get("perfil"));
     }
 }
