@@ -35,7 +35,7 @@ public class Usuario extends EntidadGenerica{
         this.id_usuario = (String) super.ObtenerValor(usr.elementos.get("id_usuario"));
         this.correo = (String) super.ObtenerValor(usr.elementos.get("correo"));
         this.contraseña = (String) super.ObtenerValor(usr.elementos.get("contraseña"));
-        this.fecha_nacimiento = (Timestamp) super.ObtenerValor(usr.elementos.get("fecha_nacimiento"));
+        this.fecha_nacimiento = Util.convertStringToTimestamp(usr.elementos.get("fecha_nacimiento").toString());
         this.genero = (String) super.ObtenerValor(usr.elementos.get("genero"));
         this.ciudad = (String) super.ObtenerValor(usr.elementos.get("ciudad"));
         this.pais = (String) super.ObtenerValor(usr.elementos.get("pais"));

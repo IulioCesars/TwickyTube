@@ -5,6 +5,9 @@
         <group>
             <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/Servlets/MostrarPortada.java</file>
             <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/Servlets/MostrarAvatar.java</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/Servlets/IniciarSesion.java</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/Helpers/Util.java</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/VO/Usuario.java</file>
         </group>
     </open-files>
 </project-private>
