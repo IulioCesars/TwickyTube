@@ -12,36 +12,7 @@
 
 	</head>
 	<body>
-		<header>
-			<nav class='glob-header'>
-				<form>
-					<a class='glob-header-logo' href='dashboard.html'> <img src='resources/images/TwickyTube_01.png'> </a>
-					<a href='#'></a>
-					<a href='#'></a>
-					
-					<button type='button' onclick="mostrar(true,'MENU-OPC-02');" class='glob-header-menu'> &#8801; </button>
-					<button type='button' onclick="mostrar(true,'MENU-OPC-01');" class='glob-header-avatar-button' type='button'> <img  class='glob-header-avatar-img' src='resources/images/esteban.jpg'/></button>
-					<div class='glob-header-search'>
-						<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
-					<input class='glob-header-search-input' type='search' placeholder='Buscar...' />
-					</div>
-				</form>
-			</nav>
-			<ul id='glob-header-menu-02' class='glob-header-menu-list'>
-				<li><a href='canal.html'> Mi canal </a></li>
-				<li><a href='perfil.html'> Mi perfil </a></li>
-				<li><a href='favoritos.html'> Favoritos </a></li>
-				<li><a href='subscripciones.html'> Subscripciones </a></li>
-				<li><a href='subscriptores.html'> Subscriptores </a></li>
-				<li> Cerrar sesión </li>
-			</ul>
-			<ul id='glob-header-menu-01' class='glob-header-menu-list'>
-				<li> Subir un video </li>
-				<li> Cambiar mi avatar </li>
-				<li> Cambiar mi portada </li>
-				
-			</ul>
-		</header>
+		<jsp:include page="header.jsp" flush="true" />
 
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 			<div id='idx-login' class='idx-login dbd-main'>

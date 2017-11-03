@@ -28,11 +28,13 @@ function mostrar(activo, objeto)
 			{
 				document.getElementById("glob-header-menu-01").style = "display:block";
 				document.getElementById("glob-header-menu-02").style = "display:none";
+				
 			}
 			else
 			{
 				document.getElementById("glob-header-menu-01").style = "display:none";
 				document.getElementById("glob-header-menu-02").style = "display:none";
+				
 			}
 			break;
 		}
@@ -59,4 +61,72 @@ function mostrar(activo, objeto)
 	
 	
 	
+}
+
+function ir_a(pagina)
+{
+	switch(pagina)
+	{
+		case 1: // INDEX
+			//alert("entra");
+			window.location('index.html');
+		break;
+		case 2:
+			window.location('upload.html');
+		break;
+	}
+}
+
+var habilitar_perfil = true;
+function habilitar(parametro)
+{
+	
+	switch(parametro)
+	{
+		case "PERFIL":
+			habilitar_perfil = !habilitar_perfil;
+			
+			var x = document.getElementsByClassName("glob-object-input");
+			var i;
+			/*
+				for (i = 0; i < x.length; i++) {
+				x[i].disabled = habilitar_perfil;
+			}
+			*/
+			x = document.getElementsByClassName("habilita-deshabilita");
+			
+			for (i = 0; i < x.length; i++) {
+				x[i].disabled = habilitar_perfil;
+			}
+			
+			
+			x = document.getElementsByClassName("per-object-save");
+			for (i = 0; i < x.length; i++) {
+				x[i].disabled = habilitar_perfil;
+			}
+			
+			x = document.getElementsByClassName("per-object-edit");
+			for (i = 0; i < x.length; i++) {
+				if(habilitar_perfil) 	x[i].innerHTML  = "Editar";
+				else 					x[i].innerHTML  = "Cancelar";
+			}
+			
+			
+			
+			
+		break;
+	}
+}
+
+function validacionCamposVacios()
+{
+	if (document.getElementById('reg-psw-contrasenia-01').value == document.getElementById('reg-psw-contrasenia-02').value) 
+	{
+		return true;
+	}
+	else 
+	{
+		alert('LAS CONTRASEÑAS NO COINCIDEN, vuelve a escribirlas u.u'); 
+		return false;
+	}
 }

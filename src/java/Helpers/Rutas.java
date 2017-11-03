@@ -10,10 +10,10 @@ package Helpers;
  * @author IulioCesar
  */
 public class Rutas {
-    public static final String Login = "index.html";
-    public static final String LoginIncorrecto = "index.html";    
-    public static final String Dashboard = "dashboard.html";
-    public static final String CrearUsuarioFallido = "index.html";    
+    public static final String Login = "index.jsp";
+    public static final String LoginIncorrecto = "index.jsp";    
+    public static final String Dashboard = "dashboard.jsp";
+    public static final String CrearUsuarioFallido = "index.jso";    
 
     
 }

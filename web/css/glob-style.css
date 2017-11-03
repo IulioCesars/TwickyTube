@@ -1,5 +1,6 @@
 /*
 COLOR TWICKY-BLUE: RGB(48,144,176); HX: #3090B0;
+COLOR TWICKY-BLUE-BAR: #2980B9;
 COLOR PLATA:#DDDDDD;
 COLOR GRIS CLARO: #CCCCCC;
 COLOR GRIS OSCURO: #757575;
@@ -36,6 +37,15 @@ background: -o-linear-gradient(top, rgba(48,144,176,1) 0%, rgba(254,254,254,1) 5
 background: -ms-linear-gradient(top, rgba(48,144,176,1) 0%, rgba(254,254,254,1) 51%, rgba(238,238,238,1) 100%);
 background: linear-gradient(to bottom, rgba(48,144,176,1) 0%, rgba(254,254,254,1) 51%, rgba(238,238,238,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#eeeeee', GradientType=0 );
+}
+
+.glob-separate-top-bottom
+{
+	margin-top:1%;
+	margin-bottom:1%;
+	clear:both;
+	overflow:auto;
+	
 }
 .glob-header
 {
@@ -127,6 +137,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', end
 	color:#252525;
 	
 }
+.glob-header-upload
+{
+	float:right;
+	width:50px;
+	height:50px;
+	cursor:pointer;
+	padding:1%;
+	border-radius:50%;
+	box-sizing:border-box;
+}
+
 .glob-header-avatar-button
 {
 	float:right;
@@ -139,7 +160,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', end
 }
 .glob-header-avatar-button:hover, 
 .glob-header-search-input:hover, 
-.glob-header-search-input:focus
+.glob-header-search-input:focus,
+.glob-header-upload:hover,
+.glob-header-upload:focus
 {
 	-webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.52);
 	-moz-box-shadow: 	0px 0px 10px 2px rgba(0,0,0,0.52);
@@ -154,7 +177,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', end
 .glob-header-search
 {
 	float:left;
-	width:500px;
+	width:calc(70% - 570px);
 	
 	position:relative;
 	
@@ -191,7 +214,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', end
 {
 	color:#3090B0;
 	height:50px;
-	width:450px;
+	width:calc(100% - 50px);
 	padding:1%;
 	padding-left:2%;
 	box-sizing:border-box;
@@ -322,10 +345,17 @@ overflow:auto;
 {
 	float:right;
 }
-
+.glob-label-user
+{
+	width:220px;
+}
 
 @media screen and (max-width: 800px)  
 {
+	.glob-header-upload
+	{
+		padding:2%;
+	}
 	.glob-header-search
 	{
 		width:250px;
@@ -342,6 +372,10 @@ overflow:auto;
 
 @media screen and (max-width: 512px)  
 {
+	.glob-header-upload
+	{
+		padding:2.5%;
+	}
 	.glob-header-menu-list
 	{
 		top:55px;

@@ -12,40 +12,12 @@
 
 	</head>
 	<body>
-		<header>
-			<nav class='glob-header'>
-				<form>
-					<a class='glob-header-logo' href='dashboard.html'> <img src='resources/images/TwickyTube_01.png'> </a>
-					<a href='#'></a>
-					<a href='#'></a>
-					
-					<button type='button' onclick="mostrar(true,'MENU-OPC-02');" class='glob-header-menu'> &#8801; </button>
-					<button type='button' onclick="mostrar(true,'MENU-OPC-01');" class='glob-header-avatar-button' type='button'> <img  class='glob-header-avatar-img' src='resources/images/esteban.jpg'/></button>
-					<div class='glob-header-search'>
-						<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
-					<input class='glob-header-search-input' type='search' placeholder='Buscar...' />
-					</div>
-				</form>
-			</nav>
-			<ul id='glob-header-menu-02' class='glob-header-menu-list'>
-				<li><a href='canal.html'> Mi canal </a></li>
-				<li><a href='perfil.html'> Mi perfil </a></li>
-				<li><a href='favoritos.html'> Favoritos </a></li>
-				<li><a href='subscripciones.html'> Subscripciones </a></li>
-				<li><a href='subscriptores.html'> Subscriptores </a></li>
-				<li><a href='index.html'> Cerrar sesión </a></li>
-			</ul>
-			<ul id='glob-header-menu-01' class='glob-header-menu-list'>
-				<li> Subir un video </li>
-				<li> Cambiar mi avatar </li>
-				<li> Cambiar mi portada </li>
-			</ul>
-		</header>
+            <jsp:include page="header.jsp" flush="true" />
 
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 			<div id='idx-login' class='idx-login dbd-main'>
 				<div class='dbd-start'>
-					<label class='idx-login-gen-label dbd-start-title'> Ultimos videos </label>
+					<label class='idx-login-gen-label dbd-start-title'> Mis favoritos </label>
 					<span class='dbd-start-span'>
 						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
 							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
@@ -53,9 +25,6 @@
 							<label class='dbd-start-video-label-user'> Parrygripp </label> 
 						</a>
 					</span>
-					</div>
-					<div class='dbd-start'>
-					<label class='idx-login-gen-label dbd-start-title'> Videos más populares </label>
 					<span class='dbd-start-span'>
 						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
 							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
@@ -63,7 +32,30 @@
 							<label class='dbd-start-video-label-user'> Parrygripp </label> 
 						</a>
 					</span>
+					<span class='dbd-start-span'>
+						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
+							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
+							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
+							<label class='dbd-start-video-label-user'> Parrygripp </label> 
+						</a>
+					</span>
+					<span class='dbd-start-span'>
+						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
+							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
+							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
+							<label class='dbd-start-video-label-user'> Parrygripp </label> 
+						</a>
+					</span>
+					<span class='dbd-start-span'>
+						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
+							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
+							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
+							<label class='dbd-start-video-label-user'> Parrygripp </label> 
+						</a>
+					</span>
+					
 				</div>
+				
 			</div>
 		</section>
 		

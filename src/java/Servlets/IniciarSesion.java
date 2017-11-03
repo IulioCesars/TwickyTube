@@ -30,6 +30,7 @@ public class IniciarSesion extends HttpServlet {
         Usuario usuario = UsuarioADO.IniciarSesion(correo, contraseña);
      
         if(usuario != null){
+            request.getSession(true).setAttribute("usuario", usuario);
             response.sendRedirect(Rutas.Dashboard);
         }else{
             response.sendRedirect(Rutas.LoginIncorrecto);

@@ -10,7 +10,7 @@
                 }
                 else 
                 {
-                    alert('LAS CONTRASEÃ‘AS NO COINCIDEN, vuelve a escribirlas u.u'); 
+                    alert('LAS CONTRASEÑAS NO COINCIDEN, vuelve a escribirlas u.u'); 
                     return false;
                 }
             }
@@ -34,34 +34,31 @@
 		</header>
 -->
 		<section>
-			<div id='idx-login' class='idx-login'>
+			<div id='idx-login' class='idx-login shadow-center-1004'>
 				<img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>				
-				<label class='idx-login-gen-label idx-login-title'> Inicio de sesiÃ³n </label>
-                                <form action="IniciarSesion" method="POST">
+				<label class='idx-login-gen-label idx-login-title'> Inicio de sesión </label>
+				<form action='IniciarSesion' method="POST">
 					<input id='idx-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico' />
-					<input id='idx-psw-contrasenia' name='contrasenia' class='glob-object-input' type='password' placeholder='ContraseÃ±a' />
-					<label class='idx-login-gen-label idx-login-description'><input id='idx-recordar' name='recordar' type='checkbox'/> Recordar contraseÃ±a</label>
-					<input id='idx-btn-iniciar-sesion' name='iniciar-sesion' class='glob-object-submit glob-object-submit-left' type='submit' value='Iniciar sesiÃ³n'/>
+					<input id='idx-psw-contrasenia' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña' />
+					<label class='idx-login-gen-label idx-login-description'><input id='idx-recordar' name='recordar' type='checkbox'/> Recordar contraseña</label>
+					<input id='idx-btn-iniciar-sesion' name='iniciar-sesion' class='glob-object-submit glob-object-submit-left' type='submit' value='Iniciar sesión'/>
 					<button id='idx-btn-registrar' name='registrar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(true, 'LOG-REG');"> Registro de usuario </button>	
-					<a href='recovery.html'> Â¿Olvidaste tu contraseÃ±a? </a>
+					<a href='recovery.html'> ¿Olvidaste tu contraseña? </a>
 				</form>
 				
 			</div>
 
 			<hr> 
 
-			<div id='idx-singup' class='idx-singup idx-login'>
+			<div id='idx-singup' class='idx-singup idx-login shadow-center-1004'>
 				<img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>
 				<label class='idx-login-gen-label idx-login-title'> Registro de usuario <br><b> Obligatorio *<b></label>
-				<form action="CrearUsuario"  method='POST' enctype='multipart/form-data' onsubmit='return validacionCamposVacios(this);'>
+				<form action="CrearUsuario" method='POST' enctype='multipart/form-data' onsubmit='return validacionCamposVacios(this);'>
 					<input id='reg-txt-alias' name='alias' class='glob-object-input' type='text' placeholder='Alias *'/>
 					<input id='reg-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico *'/>
-					<input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input' type='password' placeholder='ContraseÃ±a'/>
-					<input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input' type='password' placeholder='Repetir contraseÃ±a'/>
-					<label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>
-                                            Fecha de Nacimiento 
-                                        </label>
-                                        <input name="fechaNacimiento" class='glob-object-input'  type='date'/> 
+					<input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña'/>
+					<input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input' type='password' placeholder='Repetir contraseña'/>
+					<label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>Fecha de Nacimiento <br> <input class='glob-object-input' type='date'/> </label>
 					<label class='idx-login-gen-label idx-login-description'>
 					Genero
 					<select id='reg-sel-genero' name='genero' class='glob-object-input'> 
@@ -75,14 +72,14 @@
 					Ciudad
 					<select id='reg-sel-ciudad' name='ciudad' class='glob-object-input'> 
 						<option> Apodaca </option>
-						<option> CiÃ©nega de Flores </option>
+						<option> Cienega de Flores </option>
 						<option> Escobedo </option>
-						<option> GarcÃ­a </option>
+						<option> Garcia </option>
 						<option> Guadalupe </option>
-						<option> JuÃ¡rez </option>
+						<option> Juarez </option>
 						<option> Monterrey </option>
 						<option> San Nicolas </option>
-						<option> San Pedro Garza GarcÃ­a </option>
+						<option> San Pedro Garza Garcia </option>
 					</select>
 					</label>
 
@@ -104,6 +101,19 @@
 					<input 	id='reg-img-portada' name='img-portada' class='glob-object-input' type='file'>
 					<output id='reg-output-img-portada'></output>
 					</label>
+					
+					<label class='idx-login-gen-label idx-login-description'>
+						Elige una pregunta de seguridad
+						<select id='reg-sel-pregunta-seg-01' name='pregunta-seg-01' class='glob-object-input'>
+							<option value='1'> ¿Cuál fue tu primera mascota? </option>
+							<option value='2'> ¿Cuál es tu color favorito? </option>
+							<option value='3'> ¿Cuál es el NIP de tu tarjeta de crédito? </option>
+							<option value='4'> ¿Donde vives y en que horarios no estás en tu casa? </option>
+							<option value='5'> ¿Cuál es tu clave de acceso para entrar a Facebook? </option>
+						</select>
+					</label>
+					<input id='reg-txt-respuesta-01' name='respuesta-01' class='glob-object-input' type='text' placeholder='Respuesta *'/>
+					
 					<input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-left' type='submit' value='Registrarme'/>
 					<button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(false, 'LOG-REG');"> Regresar </button>	
 				</form>

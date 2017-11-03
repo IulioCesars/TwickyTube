@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Recuperar contrasña </title>
+		<title> Privacidad </title>
 		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href='css/glob-style.css' type='text/css' rel='stylesheet'>
@@ -20,10 +20,13 @@
 		</header>
 -->
 		<section>
-			<div id='idx-login' class='idx-login'>
-				<img src='resources/images/no-disponible.gif'>
-				<label class='idx-login-title'>Algun dia este contenido estará disponible T.T</label>
-			</div>
+	<div id='idx-login' class='idx-login'>
+	
+				<label class='idx-login-gen-label idx-login-title'> Privacidad </label>
+				<p> Privadidad... en internet? o_o </p>
+				<img src='resources/images/404.gif'>
+	</div>
+			
 		</section>
 
 		<footer>
@@ -32,7 +35,7 @@
 				<div>
 					<label>Conocenos</label>
 					<ul>
-							
+								
 						<li><a href='about.html'>Acerca de</a></li>
 						<li><a href='privacity.html'>Privacidad</a></li>
 						<li><a href='contacto.html'> Contacto </a></li>

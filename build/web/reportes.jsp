@@ -20,38 +20,24 @@
 		</header>
 -->
 		<section>
-			<div id='idx-login' class='idx-login'>
-				<label class='idx-login-gen-label idx-login-title'>¿Qué es Twicky?</label>
-				<p>
-					No somos una empresa, este proyecto ha visto la luz gracias a estudiantes, 
-					el sitio comenzó como una red social, 
-					después pasó a ser un sitio para un videojuego, 
-					se creó el proyecto Laboratorio de ideas
-					y con el paso del tiempo se creó este proyecto.
-				</p>
-				<label class='idx-login-gen-label idx-login-title'>¿Qué es TwickyTube? </label>
-				<p>
-					TwickyTube es un lugar donde puedes compartirnos tus mejores momentos en forma de video,
-					algo gracioso, dar a conocer tus talentos como artista, diseñador, programador, y muchas cosas más,
-					mucha gente podrá ver tu contenido y dar su opinion ya sea con una marca positiva o con un comentario.
-					
-				</p>
-				
-				<div class='abt-members'>
-					<img src='resources/images/esteban.jpg'/>
-					<p>
-					<label> Esteban Carranza </label>
-					 Diseñador front-end, programador y más :P 
-					 </p>
-				</div>
-				<div class='abt-members'>
-					<img src='resources/images/julio.gif'/>
-					<p>
-					<label> Julio Sierra </label>
-					 Diseñador back-end, programador y más :P 
-					 </p>
-				</div>
-			</div>
+			
+				<table >
+					<thead >
+						<tr >
+							<th border=10px>
+								hola
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+							=v
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			
 		</section>
 
 		<footer>
