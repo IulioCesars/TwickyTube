@@ -124,8 +124,9 @@ public class Pool {
                 ResultSet rs = proc.executeQuery();
                 ResultSetMetaData rsmd = rs.getMetaData();
                 
-                rs.next();
-                result = rs.getObject(0);
+                return "OK";
+                //rs.next();
+                //result = rs.getObject(0);
             }
 
         } catch (SQLException e) {

@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -42,7 +43,7 @@
 								<label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>
 									Fecha de Nacimiento 
 								</label>
-								<input id='per-date' class='glob-object-input habilita-deshabilita' type='date' disabled /> 
+								<input id='per-date' class='glob-object-input habilita-deshabilita' type='date' value="<%= new SimpleDateFormat("yyyy-MM-dd").format(usuario.fecha_nacimiento)%>" disabled /> 
 								
 							</span>
 							<span class='per-panel-input'>
@@ -59,16 +60,16 @@
 								<label class='idx-login-gen-label idx-login-description'>
 									Ciudad
 								</label>
-								<select id='per-sel-ciudad' name='ciudad' class='glob-object-input habilita-deshabilita' disabled > 
+								<select id='per-sel-ciudad' name='ciudad' text="AAA" class='glob-object-input habilita-deshabilita' disabled > 
 									<option> Apodaca </option>
-									<option> Ciénega de Flores </option>
+									<option> Cienega de Flores </option>
 									<option> Escobedo </option>
-									<option> García </option>
+									<option> Garcia </option>
 									<option> Guadalupe </option>
-									<option> Juárez </option>
+									<option> Juarez </option>
 									<option> Monterrey </option>
 									<option> San Nicolas </option>
-									<option> San Pedro Garza García </option>
+									<option> San Pedro Garza Garcia </option>
 								</select>
 							
 							</span>
@@ -77,8 +78,8 @@
 									Pais
 								</label>
 								<select id='per-sel-pais' name='pais' class='glob-object-input habilita-deshabilita' disabled >
-									<option> México </option>
-									<option> Estados Unidos de América</option>
+									<option> Mexico </option>
+									<option> Estados Unidos de America</option>
 								</select>
 							</span>
 							
@@ -86,13 +87,13 @@
 								<label class='idx-login-gen-label idx-login-description'>
 									Contraseña 
 								</label>
-								<input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Contraseña' disabled />
+								<input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Contrase�a' disabled />
 							</span>
 							<span class='per-panel-input'>
 								<label class='idx-login-gen-label idx-login-description'>
-									Repetir contraseña 
+									Repetir contrase�a 
 								</label>
-								<input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Repetir contraseña' disabled />
+								<input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Repetir contrase�a' disabled />
 							</span>
 							<span class='per-panel-input per-panel-input-img'>
 								<label class='idx-login-gen-label idx-login-description'>

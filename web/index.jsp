@@ -58,7 +58,10 @@
 					<input id='reg-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico *'/>
 					<input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña'/>
 					<input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input' type='password' placeholder='Repetir contraseña'/>
-					<label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>Fecha de Nacimiento <br> <input class='glob-object-input' type='date'/> </label>
+					<label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>
+                                            Fecha de Nacimiento 
+                                            <br> 
+                                        <input class='glob-object-input' name="fechaNacimiento" type='date'/> </label>
 					<label class='idx-login-gen-label idx-login-description'>
 					Genero
 					<select id='reg-sel-genero' name='genero' class='glob-object-input'> 
@@ -86,9 +89,9 @@
 					<label class='idx-login-gen-label idx-login-description'>
 					Pais
 					<select id='reg-sel-pais' name='pais' class='glob-object-input'>
-						<option> MÃ©xico </option>
-						<option> Estados Unidos de AmÃ©rica</option>
-					</select>
+						<option> México </option>
+						<option> Estados Unidos de América</option>
+					</select>   
 					</label>
 
 					<label class='idx-login-gen-label idx-login-description'>
