@@ -1,6 +1,5 @@
-<!--	<link href='css/glob-style.css?v=1.1.3' type='text/css' rel='stylesheet'>
+<link href='css/glob-style.css?v=1.1.3' type='text/css' rel='stylesheet'>
 	<script src="js/header.js?v=1" type="text/javascript"></script>
--->
 <%
 
     VO.Usuario usuario = (VO.Usuario) session.getAttribute("usuario");
@@ -41,7 +40,7 @@
 		<li><a href='favoritos.jsp'> Favoritos </a></li>
 		<li><a href='subscripciones.jsp'> Subscripciones </a></li>
 		<li><a href='subscriptores.jsp'> Subscriptores </a></li>
-		<li><a href='index.jsp'> Cerrar sesiÃ³n </a></li>
+		<li><a href='index.jsp'> Cerrar sesión </a></li>
 	</ul>
 	<ul id='glob-header-menu-01' class='glob-header-menu-list'>
 		<li> Subir un video </li>
