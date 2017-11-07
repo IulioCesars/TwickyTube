@@ -8,6 +8,14 @@
         <servlet-name>IniciarSesion</servlet-name>
         <servlet-class>Servlets.IniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Index</servlet-name>
+        <servlet-class>Servlets.Index</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Publicacion</servlet-name>
+        <servlet-class>Servlets.Publicacion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
@@ -16,9 +24,22 @@
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/IniciarSesion</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Index</servlet-name>
+        <url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Publicacion</servlet-name>
+        <url-pattern>/Publicacion</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>
+            Index
+        </welcome-file>
+    </welcome-file-list>
 </web-app>

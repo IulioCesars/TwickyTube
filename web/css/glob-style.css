@@ -349,6 +349,11 @@ overflow:auto;
 {
 	width:220px;
 }
+.glob-block-label
+{
+    width:100%;
+    float:left;
+}
 
 @media screen and (max-width: 800px)  
 {

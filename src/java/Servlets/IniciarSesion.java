@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import Helpers.Respuestas;
 
 @WebServlet(name = "IniciarSesion", urlPatterns = {"/IniciarSesion"})
 public class IniciarSesion extends HttpServlet {
@@ -33,9 +34,11 @@ public class IniciarSesion extends HttpServlet {
             request.getSession(true).setAttribute("usuario", usuario);
             response.sendRedirect(Rutas.Dashboard);
         }else{
+            Respuestas.setRespuesta(Respuestas.index.fallo);
             response.sendRedirect(Rutas.LoginIncorrecto);
-            return;
         }
+            return;
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

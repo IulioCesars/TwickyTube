@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Helpers;
+import Helpers.Respuestas;
 
 /**
  *
@@ -13,7 +14,8 @@ public class Rutas {
     public static final String Login = "index.jsp";
     public static final String LoginIncorrecto = "index.jsp";    
     public static final String Dashboard = "dashboard.jsp";
-    public static final String CrearUsuarioFallido = "index.jsp";    
+    public static final String CrearUsuarioFallido = "index.jsp";  
+    public static final String CarpetaParaSubirArchivos = "/archivos/";
 
     
 }

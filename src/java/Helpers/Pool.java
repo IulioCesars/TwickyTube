@@ -14,11 +14,11 @@ public class Pool {
     
     public static DataSource dataSource;
     
-    public static  String db = "twickytube";
-    public static  String host = "localhost";
+    public static  String db = "DB_TWICKYTUBE";
+    public static  String host = "twicky.com.mx";
     public static  String url = "jdbc:mysql://"+ host +"/"+db;
-    public static  String user = "root";
-    public static  String pass = "J1565970";
+    public static  String user = "twickytube";
+    public static  String pass = "twickytube"; //J1565970 
     
     
     public static void IniciarPool(){
