@@ -17,7 +17,7 @@
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 			<div id='idx-login' class='idx-login dbd-main overflow'>
 				<div class='dbd-start'>
-					<form method='post' enctype='multipart/form-data'>
+					<form action="CrearVideo" method='post' enctype='multipart/form-data'>
 						<label class='idx-login-gen-label dbd-start-title center-text'> Subir nuevo video </label>
 						<span class='dbd-start-span upl-span upl-span-sec-01'>
 							<div id='upl-div-content' class='width-100x shadow-center-1004 padding-TB'>
@@ -25,7 +25,7 @@
 								<img id='upl-video-example' class='height-quad-100' src='resources/images/upload_video.png'/>
 								<output id='upl-output-vid'></output>
 							</div>
-							<input id='upl-vid' type='file' class='glob-object-input upl-content shadow-center-1004' required>
+							<input id='upl-vid' name="fileVideo" type='file' class='glob-object-input upl-content shadow-center-1004' required>
 						</span>
 						<span class='dbd-start-span upl-span upl-span-sec-01'>
 							<div id='upl-div-content' class='width-100x shadow-center-1004 padding-TB'>
@@ -33,11 +33,12 @@
 								<img id='upl-image-example' class='height-quad-100' src='resources/images/upload_image.png'/>
 								<output id='upl-output-img'></output>
 							</div>
-							<input id='upl-img' type='file' class='glob-object-input upl-content shadow-center-1004' required>
+							<input id='upl-img' name="fileVistaPrevia" type='file' class='glob-object-input upl-content shadow-center-1004' required>
 						</span>
 						<span class='dbd-start-span upl-span upl-span-sec-02'>						
 							<div id='upl-div-content' class='width-100x shadow-center-1004'>
-								<input class='glob-object-input not-shadows' type='text' placeholder='Escribe aqui la descripcion del video' required>
+								<input class='glob-object-input not-shadows' name="txtTitulo" type='text' placeholder='Titulo' required>
+                                                                <input class='glob-object-input not-shadows' name="txtDescripcion" type='text' placeholder='Escribe aqui la descripcion del video' required>
 								<input class='glob-object-submit not-shadows' type='submit' placeholder='Subir video'>
 							</div>
 						</span>
