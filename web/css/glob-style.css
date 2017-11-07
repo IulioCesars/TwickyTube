@@ -354,7 +354,14 @@ overflow:auto;
     width:100%;
     float:left;
 }
-
+.glob-alert-correct
+{
+    color:green;
+}
+.glob-alert-error
+{
+    color:red;
+}
 @media screen and (max-width: 800px)  
 {
 	.glob-header-upload

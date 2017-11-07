@@ -34,7 +34,7 @@ public class IniciarSesion extends HttpServlet {
             request.getSession(true).setAttribute("usuario", usuario);
             response.sendRedirect(Rutas.Dashboard);
         }else{
-            Respuestas.setRespuesta(Respuestas.index.fallo);
+            Respuestas.setRespuesta(Respuestas.index.fallo, Respuestas.estado_alerta.Error);
             response.sendRedirect(Rutas.LoginIncorrecto);
         }
             return;

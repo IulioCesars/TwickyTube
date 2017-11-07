@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,8 +21,9 @@ public class Video extends EntidadGenerica
     public String titulo;
     public String descripcion;
     public String clasificacion;
-    public String path_vid_video;
-    public String path_img_video;
+    public String pathVideo;
+    public String pathVistaPrevia;
+    public String fk_usuario;
     
     public Video()
     {
@@ -33,8 +35,9 @@ public class Video extends EntidadGenerica
         this.titulo = (String) super.ObtenerValor(vid.elementos.get("titulo"));
         this.descripcion = (String) super.ObtenerValor(vid.elementos.get("descripcion"));
         this.clasificacion = (String) super.ObtenerValor(vid.elementos.get("clasificacion"));
-        this.path_vid_video = (String) super.ObtenerValor(vid.elementos.get("path_vid_video"));
-        this.path_img_video = (String) super.ObtenerValor(vid.elementos.get("path_vid_video"));
+        this.pathVideo = (String) super.ObtenerValor(vid.elementos.get("pathVideo"));
+        this.pathVistaPrevia = (String) super.ObtenerValor(vid.elementos.get("pathVistaPrevia"));
+        this.fk_usuario = (String) super.ObtenerValor(vid.elementos.get("fk_usuario"));
         
     }
 }

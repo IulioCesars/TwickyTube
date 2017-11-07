@@ -20,9 +20,9 @@
         <title> Inicio de sesion </title>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href='css/glob-style.css' type='text/css' rel='stylesheet'>
-        <link href='css/idx-style.css' type='text/css' rel='stylesheet'>
-        <script type="text/javascript" src="js/idx-js.js?v=1.1.2"></script>
+        <link href='css/glob-style.css?v=1.3.1' type='text/css' rel='stylesheet'>
+        <link href='css/idx-style.css?v.1.3.1' type='text/css' rel='stylesheet'>
+        <script type="text/javascript" src="js/idx-js.js?v=1.3.1"></script>
     </head>
     <body>
         <section>
@@ -33,7 +33,7 @@
                                 <input id='idx-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico' required />
                                 <input id='idx-psw-contrasenia' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña' required/>
                                 <label class='idx-login-gen-label idx-login-description'><input id='idx-recordar' name='recordar' type='checkbox'/> Recordar contraseña</label>
-                                <label class='idx-login-gen-label idx-login-description'> <%= Respuestas.getRespuesta() %></label>
+                                 <%= Respuestas.getRespuesta() %>
                                 <input id='idx-btn-iniciar-sesion' name='iniciar-sesion' class='glob-object-submit glob-object-submit-left' type='submit' value='Iniciar sesión'/>
                                 <button id='idx-btn-registrar' name='registrar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(true, 'LOG-REG');"> Registro de usuario </button>	
                                 <a href='recovery.html'> ¿Olvidaste tu contraseña? </a>
@@ -47,14 +47,14 @@
                         <img class='idx-login-img' src='resources/images/TwickyTube_01.png'/>
                         <label class='idx-login-gen-label idx-login-title'> Registro de usuario <br><b> Obligatorio *<b></label>
                         <form action="CrearUsuario" method='POST' enctype='multipart/form-data' onsubmit='return validacionCamposVacios(this);'>
-                                <input id='reg-txt-alias' name='alias' class='glob-object-input' type='text' placeholder='Alias *'/>
-                                <input id='reg-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico *'/>
-                                <input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña'/>
-                                <input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input' type='password' placeholder='Repetir contraseña'/>
+                                <input required id='reg-txt-alias' name='alias' class='glob-object-input' type='text' placeholder='Alias *'/>
+                                <input required id='reg-txt-correo' name='correo' class='glob-object-input' type='email' placeholder='Correo Electronico *'/>
+                                <input required id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input' type='password' placeholder='Contraseña'/>
+                                <input required id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input' type='password' placeholder='Repetir contraseña'/>
                                 <label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>
                                     Fecha de Nacimiento 
                                     <br> 
-                                <input class='glob-object-input' name="fechaNacimiento" type='date'/> </label>
+                                <input required  class='glob-object-input' name="fechaNacimiento" type='date'/> </label>
                                 <label class='idx-login-gen-label idx-login-description'>
                                 Genero
                                 <select id='reg-sel-genero' name='genero' class='glob-object-input'> 
@@ -89,12 +89,12 @@
 
                                 <label class='idx-login-gen-label idx-login-description'>
                                 Imagen de avatar
-                                <input 	id='reg-img-avatar' name='img-avatar' class='glob-object-input' type='file'>
+                                <input required id='reg-img-avatar' name='img-avatar' class='glob-object-input' type='file'>
                                 <output id='reg-output-img-avatar'></output>
                                 </label>
                                 <label class='idx-login-gen-label idx-login-description'>
                                 Imagen de portada
-                                <input 	id='reg-img-portada' name='img-portada' class='glob-object-input' type='file'>
+                                <input 	required id='reg-img-portada' name='img-portada' class='glob-object-input' type='file'>
                                 <output id='reg-output-img-portada'></output>
                                 </label>
 
@@ -108,7 +108,7 @@
                                                 <option value='5'> ¿Cuál es tu clave de acceso para entrar a Facebook? </option>
                                         </select>
                                 </label>
-                                <input id='reg-txt-respuesta-01' name='respuesta-01' class='glob-object-input' type='text' placeholder='Respuesta *'/>
+                                <input required id='reg-txt-respuesta-01' name='respuesta-01' class='glob-object-input' type='text' placeholder='Respuesta *'/>
 
                                 <input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-left' type='submit' value='Registrarme'/>
                                 <button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right' type='button' onclick="mostrar(false, 'LOG-REG');"> Regresar </button>	

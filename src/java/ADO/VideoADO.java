@@ -3,6 +3,7 @@ package ADO;
 
 import Helpers.Pool;
 import VO.Video;
+import com.mysql.jdbc.StringUtils;
 
 public class VideoADO 
 {
@@ -46,4 +47,17 @@ public class VideoADO
         
         return resultado;
     }
+    public static boolean Validar(Video video){
+        return !StringUtils.isNullOrEmpty(video.id_video)
+                && !StringUtils.isNullOrEmpty(video.titulo)
+                && !StringUtils.isNullOrEmpty(video.descripcion)
+                && !StringUtils.isNullOrEmpty(video.clasificacion)
+                && !StringUtils.isNullOrEmpty(video.pathVideo)
+                && !StringUtils.isNullOrEmpty(video.pathVistaPrevia);        
+    }
+    public static void CrearVideo(Video video)
+    {
+        
+    }
 }
+

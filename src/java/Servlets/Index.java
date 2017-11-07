@@ -34,7 +34,7 @@ public class Index extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Respuestas.setRespuesta(Respuestas.index.correcto);
+            Respuestas.setRespuesta(Respuestas.index.correcto, Respuestas.estado_alerta.Correcto);
             request.getRequestDispatcher(Rutas.Login).forward(request, response);
         }
     }

@@ -6,6 +6,7 @@
 package Servlets;
 
 import ADO.UsuarioADO;
+import Helpers.Respuestas;
 import Helpers.Rutas;
 import Helpers.Util;
 import VO.Usuario;
@@ -20,7 +21,7 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+
 import sun.misc.IOUtils;
 
 @MultipartConfig
@@ -43,11 +44,40 @@ public class CrearUsuario extends HttpServlet {
         usuario.partPortada = request.getPart("img-portada");
         
         String respuesta = UsuarioADO.CrearUsuario(usuario);
+        if(respuesta == null)
+        {
+            respuesta = "ERROR 00";
+        }
         
-        if(respuesta == "OK")
+        switch(respuesta)
+        {
+            case "OK":
+            Respuestas.setRespuesta(Respuestas.registro.correcto, Respuestas.estado_alerta.Correcto);
             response.sendRedirect(Rutas.Login);
-        else
-            response.sendRedirect(Rutas.CrearUsuarioFallido + respuesta);
+            break;
+            
+             case "ERROR 00":
+                Respuestas.setRespuesta(Respuestas.registro.fallo, Respuestas.estado_alerta.Error);
+                response.sendRedirect(Rutas.CrearUsuarioFallido);
+            break;
+            
+            case "ERROR 01":
+                Respuestas.setRespuesta(Respuestas.registro.fallo, Respuestas.estado_alerta.Error);
+                response.sendRedirect(Rutas.CrearUsuarioFallido);
+            break;
+                
+            case "ERROR 02":
+                Respuestas.setRespuesta(Respuestas.registro.duplicados, Respuestas.estado_alerta.Error);
+                response.sendRedirect(Rutas.CrearUsuarioFallido);
+            break;
+            default:
+                //response.sendRedirect(Rutas.Login);
+            break;
+        }
+        
+        
+        
+            
         
     }
 
