@@ -12,6 +12,7 @@ package Helpers;
 public class Respuestas {
     
     private static String Respuesta = "";
+    private static String RespuestaSubirVideo = "";
     private static String clasesEtiqueta = "idx-login-gen-label";
     
     public static String getRespuesta()
@@ -23,7 +24,15 @@ public class Respuestas {
         Respuesta = "<label" + clasesEtiqueta + " "+ alerta + ">" + res + "</label>";
         return Respuesta;
     }
-    
+    public static String getRespuestaSubirVideo()    
+    {
+        return RespuestaSubirVideo;
+    }
+    public static String setRespuestaSubirVideo(String respuesta)
+    {
+        RespuestaSubirVideo = respuesta;
+        return RespuestaSubirVideo;
+    }
     public static class estado_alerta
     {
         public static String Correcto = "glob-alert-correct";
@@ -41,9 +50,23 @@ public class Respuestas {
         public static String fallo =     "Algo salió mal, intentalo de nuevo";
         public static String duplicados =  "El alias o el correo están duplicados";
         
-        
+    }
+    public static class subida_video
+    {
+        public static String correcto = 
+                "<div id='RespuestaVideo' name='finish-upload' class='upl-finish-upload' onclick='ocultar_subirVideo()'>" +
+                    "<label class='upl-finish-upload-label shadow-center-1004 "+ estado_alerta.Correcto +"'>" +
+                        "Tu video se subió exitosamente!" +
+                    "</label>" +
+                "</div>";
+        public static String fallo = 
+                "<div id='RespuestaVideo' name='finish-upload' class='upl-finish-upload' onclick='ocultar_subirVideo()'>" +
+                    "<label class='upl-finish-upload-label shadow-center-1004 "+ estado_alerta.Error +"'>" +
+                        "Ups!, algo salió mal :(, ¿quieres que lo volvamos a intentar?" +
+                    "</label>" +
+                "</div>";
         
     }
-    
+
     
 }

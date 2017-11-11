@@ -130,3 +130,8 @@ function validacionCamposVacios()
 		return false;
 	}
 }
+
+function ocultar_subirVideo()
+{
+    document.getElementById('RespuestaVideo').style = 'display:none';
+}

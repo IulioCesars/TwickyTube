@@ -13,13 +13,16 @@
 	</head>
 	<body>
 		<jsp:include page="header.jsp" flush="true" />
-
+                
+                
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
+                    
 			<div id='idx-login' class='idx-login dbd-main'>
 				<div class='dbd-start'>
 					<label class='idx-login-gen-label dbd-start-title'> Recomendados </label>
 					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
+						<a href='' class='dbd-start-video-label'>
+                                                        <label> dashboard?id=esteban.xdcs </label>
 							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
 							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
 							<label class='dbd-start-video-label-user'> Parrygripp </label> 

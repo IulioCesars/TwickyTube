@@ -64,24 +64,27 @@ public class Publicacion extends HttpServlet {
 }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         
         String pathVideo = subirArchivo(0,request, response, "path_vid_video", "esteban");
-        String pathImagen = subirArchivo(0,request, response, "path_img_video", "esteban");
-        response.setContentType("text/html;charset=UTF-8");
-        /*
-         Video publicacion = new Video();
+        String pathImagen = subirArchivo(0,request, response, "path_img_video", "esteban");      
+        
+        Video publicacion = new Video();
+        
         publicacion.id_video = request.getParameter("id_video");
         publicacion.titulo = request.getParameter("titulo");
         publicacion.descripcion = request.getParameter("descripcion");
         publicacion.clasificacion = request.getParameter("clasificacion");
         publicacion.fecha = Util.convertStringToTimestamp(request.getParameter("fecha"));
-        publicacion.path_img_video = request.getParameter("path_img_video");
-        publicacion.path_vid_video = request.getParameter("path_vid_video");
+        publicacion.pathVistaPrevia = pathImagen;
+        publicacion.pathVideo = pathVideo;
         
-        String titulo = request.getParameter("titulo");
-        String path_vid_video = request.getParameter("path_vid_video");
-        String path_img_video = request.getParameter("path_img_video");
-        */
+        publicacion.contentTypeVideo = "video/mp4";
+        publicacion.contentTypeVistaPrevia = "image/png";
+        publicacion.fk_usuario = "1";
+        
+        String resultadoVideo = "";
+        resultadoVideo = VideoADO.subir_video(publicacion);
         /*
         Part file_video = request.getPart("path_vid_video");
         String pathVideo = "web/temp/yolo.mp4";
@@ -93,37 +96,12 @@ public class Publicacion extends HttpServlet {
         */
           try (PrintWriter out = response.getWriter()) {
         
-       
+            Respuestas.setRespuestaSubirVideo(Respuestas.subida_video.correcto);
+            request.getRequestDispatcher(Rutas.Upload).forward(request, response);
         
       //String respuesta = "";
       //respuesta = VideoADO.subir_video(publicacion);
      
-        out.println
-        (
-            "<!DOCTYPE html>" +
-                "<html>" +
-                    "<head>" + 
-                        "<title>OK</title>" +
-                    "</head>" + 
-                    "<body>" +
-                        pathVideo + "<br>" +
-                        pathImagen + "<br>" +
-                            /*"Parametros POST" + "<br>" +
-                            publicacion.id_video + "<br>" +
-                            publicacion.titulo + "<br>" +
-                            publicacion.descripcion + "<br>" +
-                            publicacion.clasificacion + "<br>" +
-                            publicacion.fecha + "<br>" +
-                            publicacion.path_img_video + "<br>" +
-                            publicacion.path_vid_video + "<br>" +
-                            "<hr>" +
-                            titulo + "<br>" +
-                            res + "<br>" +
-                            path_vid_video + "<br>" +*/
-                            
-                    "</body>"+
-                "</html>"
-        );
             
             
           }

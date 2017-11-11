@@ -1,3 +1,4 @@
+<%@page import="Helpers.Respuestas"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,6 +8,7 @@
         <link href='css/glob-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
         <link href='css/idx-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
         <script src="js/idx-js.js?v=1" type="text/javascript" ></script>
+        
     </head>
     <body>
         <jsp:include page="header.jsp" flush="true" />
@@ -33,14 +35,23 @@
                         </span>
                         <span class='dbd-start-span upl-span upl-span-sec-02'>						
                             <div id='upl-div-content' class='width-100x shadow-center-1004'>
-                                <input name='titulo' class='glob-object-input not-shadows' type='text' placeholder='Escribe aqui la descripcion del video' required>
+                                <input name='titulo' class='glob-object-input not-shadows' type='text' placeholder='Titulo del video' required>
+                                <textarea name='descripcion' class='glob-object-input not-shadows' type='text' placeholder='Escribe aqui la descripcion del video' required></textarea>
+                                <div> Clasificación </div>
+                                <select name='clasificacion' class='glob-object-input not-shadows'>
+                                    <option value='1'>Para todo publico</option>
+                                    <option value='2'>Infantil</option>
+                                    <option value='3'>Mayores de 15</option>
+                                </select>
                                 <input class='glob-object-submit not-shadows' type='submit' placeholder='Subir video'>
                             </div>
                         </span>
+                         
                     </form>
                 </div>
             </div>
-        </section>    
+        </section>
+        <%= Respuestas.getRespuestaSubirVideo() %>
         <jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>

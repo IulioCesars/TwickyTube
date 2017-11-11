@@ -1,4 +1,5 @@
-CREATE FUNCTION `fn_validarAlias`(U_alias varchar(50)) RETURNS tinyint(1)
+delimiter //
+CREATE FUNCTION fn_validarAlias(U_alias varchar(50)) RETURNS tinyint(1)
 begin
 	declare U_existe boolean;
     

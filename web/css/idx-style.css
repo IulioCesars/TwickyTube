@@ -695,7 +695,8 @@
 	padding:0px;
 }
 .per-panel-input input,
-.per-panel-input select
+.per-panel-input select,
+.per-panel-input textarea
 {
 	/*background-color:blue;*/
 	height:40px;
@@ -781,7 +782,9 @@
 	
 	box-sizing:border-box;
 }
-.upl-span input.glob-object-input.not-shadows
+.upl-span input.glob-object-input.not-shadows,
+.upl-span textarea.glob-object-input.not-shadows,
+.upl-span select.glob-object-input.not-shadows
 {
 	
 	width:95%;
@@ -811,7 +814,29 @@
 	/* Modo B: padding:1% */
 	padding:1%;
 }
-
+.upl-finish-upload
+{
+    top:0px;
+    float:top;
+    position:fixed;
+    background-color:rgba(1,1,1,0.1);   
+    height: 100%;
+    width:100%;
+}
+.upl-finish-upload-label
+{
+    position:absolute;
+    top:50%;
+    width:50%;
+    left:50%;
+    margin-left: -25%;
+    background-color:whitesmoke;
+    padding:2%;
+    font-size: 150%;
+    color:#2ecc71;
+    box-sizing: border-box;
+    
+}
 
 .not-shadows
 {

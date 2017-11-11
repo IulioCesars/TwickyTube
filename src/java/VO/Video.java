@@ -24,6 +24,8 @@ public class Video extends EntidadGenerica
     public String pathVideo;
     public String pathVistaPrevia;
     public String fk_usuario;
+    public String contentTypeVideo;
+    public String contentTypeVistaPrevia;
     
     public Video()
     {
@@ -38,6 +40,9 @@ public class Video extends EntidadGenerica
         this.pathVideo = (String) super.ObtenerValor(vid.elementos.get("pathVideo"));
         this.pathVistaPrevia = (String) super.ObtenerValor(vid.elementos.get("pathVistaPrevia"));
         this.fk_usuario = (String) super.ObtenerValor(vid.elementos.get("fk_usuario"));
+        this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVideo"));
+        this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVistaPrevia"));
+        
         
     }
 }
