@@ -6,10 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href='css/glob-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
 		<link href='css/idx-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
-		
+                <script href ="js/jsUtil.js" type="text/javascript" ></script>
 		<script src="js/idx-js.js?v=1" type="text/javascript" ></script>
-		
-
 	</head>
 	<body>
 		<jsp:include page="header.jsp" flush="true" />

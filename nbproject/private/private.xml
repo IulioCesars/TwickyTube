@@ -3,25 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Servlets/MostrarPortada.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/index.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Helpers/Respuestas.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/dashboard.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Helpers/Diccionario.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/ADO/VideoADO.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Servlets/Publicacion.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Servlets/dashboard.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/upload.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/dashDetalle.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/ADO/UsuarioADO.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/VO/Video.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Servlets/NewServlet.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/js/idx-js.js</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Servlets/Index.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Helpers/Rutas.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Servlets/MostrarAvatar.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Helpers/Pool.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/header.jsp</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/Servlets/wsTwickyTube.java</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/src/java/ADO/ComentarioADO.java</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/web/video.jsp</file>
+            <file>file:/home/iuliocesar/GitKraken/TwickyTube/web/js/jsUtil.js</file>
         </group>
     </open-files>
 </project-private>

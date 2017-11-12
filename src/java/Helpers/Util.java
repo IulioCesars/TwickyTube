@@ -35,4 +35,12 @@ public class Util {
         }
         return null;
   }
+    
+    public static Integer StringTryParsetoInt(String s){
+        try{
+            return Integer.parseInt(s);
+        }catch(Exception ex){
+            return null;
+        }
+    }
 }

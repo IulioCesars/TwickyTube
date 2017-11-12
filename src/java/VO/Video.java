@@ -16,7 +16,7 @@ import java.sql.Timestamp;
  */
 public class Video extends EntidadGenerica
 {
-    public String id_video;
+    public int id_video;
     public Timestamp fecha;
     public String titulo;
     public String descripcion;
@@ -32,7 +32,7 @@ public class Video extends EntidadGenerica
     
     }
     public Video(Diccionario vid){
-        this.id_video = (String) super.ObtenerValor(vid.elementos.get("id_video"));
+        this.id_video = (int) super.ObtenerValor(vid.elementos.get("id_video"));
         this.fecha = Util.convertStringToTimestamp(vid.elementos.get("fecha").toString());
         this.titulo = (String) super.ObtenerValor(vid.elementos.get("titulo"));
         this.descripcion = (String) super.ObtenerValor(vid.elementos.get("descripcion"));
@@ -42,7 +42,5 @@ public class Video extends EntidadGenerica
         this.fk_usuario = (String) super.ObtenerValor(vid.elementos.get("fk_usuario"));
         this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVideo"));
         this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVistaPrevia"));
-        
-        
     }
 }

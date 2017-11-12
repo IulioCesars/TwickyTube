@@ -1,13 +1,39 @@
+ <%@page import="ADO.UsuarioADO"%>
+<%@page import="VO.Usuario"%>
+<%@page import="Helpers.Util"%>
+<%@page import="VO.Video"%>
+<%@page import="ADO.VideoADO"%>
+<%@page import="Helpers.Rutas"%>
+<%@page import="com.mysql.jdbc.StringUtils"%>
+<% 
+    String idString = request.getParameter("id");
+    Integer id = 0;
+    Video video = null;
+    Usuario usuario = null;    
+    id = Util.StringTryParsetoInt(idString);
+    if(id != null){
+        video = VideoADO.Obtener(id);
+        if(video != null){
+            usuario = UsuarioADO.Obtener(video.fk_usuario);
+        }
+    }
+    Usuario usuarioSession = (Usuario) session.getAttribute("usuario");
+%>
+
+<% if(  video != null 
+        && usuario != null) {%>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title> There's A Cat Licking Your Birthday Cake </title>
+        <title><%= video.titulo %></title>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href='css/glob-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
         <link href='css/idx-style.css?v=1.1.1' type='text/css' rel='stylesheet'>
         <script src="js/idx-js.js?v=1" type="text/javascript" ></script>
         <script src='js/vid-obtenerURL.js?v=1.1.2' type="text/javascript"></script>
+        <script src ="js/jsUtil.js" type="text/javascript" ></script>
     </head>
     <body>
         <jsp:include page="header.jsp" flush="true" />
@@ -16,54 +42,43 @@
 				
 				<div class='vid-main'>
 					<video class='vid-main-content' controls> 
-						<source src='resources/video/video_01.mp4'> 
+                                            <source src="<%= video.pathVideo %>"><!--resources/video/video_01.mp4--> 
 					</video>
 					
 					<div class='vid-main-sub'>
-						<label class='idx-login-gen-label vid-main-title'> There's A Cat Licking Your Birthday Cake </label>
+						<label class='idx-login-gen-label vid-main-title'><%= video.titulo %></label>
 						
 						
 						<span class='vid-main-subcontent'>
-							<img class='vid-main-sub-img' src='resources/images/esteban.jpg'/>
-						
-							<label class='vid-main-sub-name'><a class='vid-main-user-link' href='canal.html'> Parrygripp </a></label>
-							<button type='button' class='vid-main-sub-button' onclick='mostrar_x();'> Suscribirse </button>
-						
+							<img class='vid-main-sub-img' src='MostrarAvatar?id=<%= usuario.id_usuario %>'/>
+                                                        <label class='vid-main-sub-name'><a class='vid-main-user-link' href='canal.html'> <%= usuario.id_usuario %> </a></label>
+
+                                                        <% if(usuarioSession != null
+                                                                && usuarioSession.id_usuario != usuario.id_usuario) {%>
+							<button type='button' class='vid-main-sub-button' onclick='jsUtil.Suscribirse("<%= usuario.id_usuario %>")'> Suscribirse </button>
+                                                        <% } %>
 						</span>
-						<span class='vid-main-subcontent vid-main-like'>							
-							<button title='Reportar'><img src='resources/images/report_01.png'> </button>
-							<button title='Me gusta'><img src='resources/images/like_01.png'> </button>
-							<button title='Favoritos'><img src='resources/images/favorites_01.png'> </button>
-						</span>
+						<span class='vid-main-subcontent vid-main-like'>
+                                                        <% if(usuarioSession != null
+                                                                    && usuarioSession.id_usuario != usuario.id_usuario) {%>
+                                                        <button title='Reportar' onclick="jsUtil.Reportar(<%= video.id_video %>)" ><img src='resources/images/report_01.png'> </button>
+                                                        <button title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img src='resources/images/like_01.png'> </button>
+							<button title='Favoritos'onclick="jsUtil.Favorito(<%= video.id_video %>)" ><img src='resources/images/favorites_01.png'> </button>
+                                                        <% } %>
+                                                </span>
 						
 					</div>
 					
-					<div class='vid-main-sub vid-main-coments'>
+                                        <div id="divComentarios" class='vid-main-sub vid-main-coments'>
+                                                <% if(usuarioSession!=null){%>
 						<div class='glob-separate-top-bottom'>
-							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
-							<label class='vid-main-coments-coment'> comentario yolo :v </label>
+							<img class='vid-main-coments-img' onclick='mostrar_x();' src="MostrarAvatar?id=<%= usuarioSession.id_usuario %>">
+                                                        <label class='vid-main-coments-user'> <a href='canal.html'><%= usuarioSession.id_usuario %></a></label>
+                                                        <br>
+                                                        <textarea id="txtComentarios" rows="4" cols="50" placeholder="Comentarios"></textarea>
+                                                        <button type='button' class='   ' onclick='jsUtil.Comentar( $("#txtComentarios").val() ,"<%= video.id_video %>")'> Comentar </button>
 						</div>
-						<div class='glob-separate-top-bottom'>
-							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
-							<label class='vid-main-coments-coment'> comentario yolo :v </label>
-						</div>
-						<div class='glob-separate-top-bottom'>
-							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
-							<label class='vid-main-coments-coment'> comentario yolo :v </label>
-						</div>
-						<div class='glob-separate-top-bottom'>
-							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
-							<label class='vid-main-coments-coment'> comentario yolo :v </label>
-						</div>
-						<div class='glob-separate-top-bottom'>
-							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
-							<label class='vid-main-coments-coment'> comentario yolo :v </label>
-						</div>
+                                                <% } %>
 						<div class='glob-separate-top-bottom'>
 							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
 							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
@@ -139,3 +154,8 @@
         <jsp:include page="footer.jsp" flush="true" />
     </body>
 </html>
+<% }
+else{
+    response.sendRedirect(Rutas.Dashboard);
+}
+%>

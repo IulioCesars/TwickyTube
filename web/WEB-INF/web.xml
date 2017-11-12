@@ -20,6 +20,10 @@
         <servlet-name>dashboard</servlet-name>
         <servlet-class>Servlets.dashboard</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>wsTwickyTube</servlet-name>
+        <servlet-class>Servlets.wsTwickyTube</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>dashboard</servlet-name>
         <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>wsTwickyTube</servlet-name>
+        <url-pattern>/wsTwickyTube</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

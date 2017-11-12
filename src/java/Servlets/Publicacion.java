@@ -10,6 +10,7 @@ import Helpers.Respuestas;
 import Helpers.Rutas;
 import static Helpers.Rutas.CarpetaParaSubirArchivos;
 import Helpers.Util;
+import VO.Usuario;
 import VO.Video;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -60,18 +61,18 @@ public class Publicacion extends HttpServlet {
             Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
         }
 
-    return file.getPath();
+    return file.getPath().replace(getServletContext().getRealPath("/"), "");
 }
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        String pathVideo = subirArchivo(0,request, response, "path_vid_video", "esteban");
-        String pathImagen = subirArchivo(0,request, response, "path_img_video", "esteban");      
+        Usuario usuario = (Usuario) request.getSession(true).getAttribute("usuario");
+        String pathVideo = subirArchivo(0,request, response, "path_vid_video",usuario.id_usuario );
+        String pathImagen = subirArchivo(0,request, response, "path_img_video", usuario.id_usuario);      
         
         Video publicacion = new Video();
         
-        publicacion.id_video = request.getParameter("id_video");
+        //publicacion.id_video = request.getParameter("id_video");
         publicacion.titulo = request.getParameter("titulo");
         publicacion.descripcion = request.getParameter("descripcion");
         publicacion.clasificacion = request.getParameter("clasificacion");

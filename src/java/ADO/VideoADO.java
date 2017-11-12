@@ -71,9 +71,17 @@ public class VideoADO
         
         return resultado;
     }
+    public static Video Obtener(int id){
+        List<Diccionario> dicVideo = Pool.EjecutarStoredProcedure("ObtenerVideo",new Object[] { id  });
+        Video video = null;
+        if(dicVideo.size() > 0){
+            video = new Video(dicVideo.get(0));
+        }
+        return video;
+    }
     
     public static boolean Validar(Video video){
-        return !StringUtils.isNullOrEmpty(video.id_video)
+        return video.id_video != -1
                 && !StringUtils.isNullOrEmpty(video.titulo)
                 && !StringUtils.isNullOrEmpty(video.descripcion)
                 && !StringUtils.isNullOrEmpty(video.clasificacion)
