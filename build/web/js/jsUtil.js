@@ -38,31 +38,41 @@ class jsUtil{
         }
         
         static Favorito(id_video){
-            this.Ajax("Favorito", id_video, (result)=>{ });
+            this.Ajax("Favorito", id_video, (result)=>{ alert(result); });
         }
         
         static Comentar(comentario, id_video){
+        if(comentario == null || comentario.length==0){ return; }    
+        $("body").css("cursor", "progress");
+        var Comentario = `<div class='glob-separate-top-bottom'>
+                    <img class='vid-main-coments-img' onclick='mostrar_x();' src="MostrarAvatar?id={nombreUsuario}">
+                    <label class='vid-main-coments-user'> <a href='canal.jsp?id={nombreUsuario}'>{nombreUsuario}</a> 
+                    <label class='vid-main-coments-date'>{fecha}</label> </label>
+                    <label class='vid-main-coments-coment'>{comentario}</label>
+                </div>`;
             $.ajax(
                 {  
                     type: "POST",  
                     url: "wsTwickyTube",  
                     data: "action="+"Comentario"+"&p="+ id_video + "&comentario=" + comentario,
                     success: function(result){
-                        alert(result);
+                        var jsonComentario = JSON.parse(result);
+                        Comentario = Comentario.replace("{nombreUsuario}",jsonComentario.fk_usuario);
+                        Comentario = Comentario.replace("{nombreUsuario}",jsonComentario.fk_usuario);
+                        Comentario = Comentario.replace("{nombreUsuario}",jsonComentario.fk_usuario);
+                        Comentario = Comentario.replace("{fecha}","Hace un momento");
+                        Comentario = Comentario.replace("{comentario}",jsonComentario.comentario);
+
+                        $("#txtComentarios").val('');
+                        $("body").css("cursor", "default");
+                        $("#divComentarios").append(Comentario);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert("Error status code: "+xhr.status);
                         alert("Error details: "+ thrownError);
+                        $("body").css("cursor", "default");
                     }   
                 }
             );
-            var Comentario = `<div class='glob-separate-top-bottom'>
-                                <img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-                                <label class='vid-main-coments-user'> <a href='canal.html'>{nombreUsuario}</a> 
-                                <label class='vid-main-coments-date'>{fecha}</label> </label>
-                                <label class='vid-main-coments-coment'>{comentario}</label>
-                            </div>`;
-        
-            $("#divComentarios").append(Comentario);
         }
 }

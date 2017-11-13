@@ -34,7 +34,7 @@ public class wsTwickyTube extends HttpServlet {
                 case "Suscribirse" : { Resultado = AjaxADO.Suscribirse(Parametro, usuario.id_usuario); break;}
                 case "MeGusta" : { Resultado = AjaxADO.MeGusta(usuario.id_usuario, Parametro);  break;}            
                 case "Reportar" : {  break;}
-                case "Favorito" : {  break;}
+                case "Favorito" : {  Resultado = AjaxADO.Favorito(usuario.id_usuario, Parametro); break;}
                 case "Comentario": { 
                     String comentario = request.getParameter("comentario");
                     if(StringUtils.isEmptyOrWhitespaceOnly(comentario)){

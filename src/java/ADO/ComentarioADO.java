@@ -9,6 +9,7 @@ import Helpers.Diccionario;
 import Helpers.Pool;
 import Helpers.Util;
 import VO.Comentario;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +27,20 @@ public class ComentarioADO {
             resultado.fk_usuario = usuario;
             resultado.fk_video = idVideo;
             resultado.comentario = comentario;
+        }
+        return resultado;
+    }
+    
+    public static List<Comentario> ObternerComentarios(int video){
+        List<Comentario> resultado = new ArrayList<Comentario>();
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("ObtenerComentarios", new Object[] { video });
+        for(Diccionario d : dicResul){
+            try{
+            Comentario c = new Comentario(d);
+            resultado.add(c);
+            }catch(Exception ex){
+            
+            }
         }
         return resultado;
     }

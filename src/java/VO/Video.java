@@ -26,6 +26,7 @@ public class Video extends EntidadGenerica
     public String fk_usuario;
     public String contentTypeVideo;
     public String contentTypeVistaPrevia;
+    public int vistas;
     
     public Video()
     {
@@ -42,5 +43,17 @@ public class Video extends EntidadGenerica
         this.fk_usuario = (String) super.ObtenerValor(vid.elementos.get("fk_usuario"));
         this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVideo"));
         this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVistaPrevia"));
+        this.vistas = (int) super.ObtenerValor(vid.elementos.get("vistas"));
+    }
+    
+    public String toHTML(){
+        return "<span class='dbd-start-span'>\n" +
+                    "<a href='video.jsp?id=" + this.id_video  +"' class='dbd-start-video-label'>\n" +
+                        "<img class='dbd-start-video-label-content' src='" + this.pathVistaPrevia + "'/>\n" +
+                        "<label class='dbd-start-video-label-title'> " + this.titulo + " </label>\n" +
+                        "<label class='dbd-start-video-label-user'> " + this.fk_usuario + " </label> \n" +
+                    "</a>\n" +
+                "</span>";
+    
     }
 }

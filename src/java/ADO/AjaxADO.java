@@ -31,7 +31,20 @@ public class AjaxADO {
         String resultado = "";
         Integer idVideo = Util.StringTryParsetoInt(id_video);
         if(idVideo == null){ return "Error"; }
-        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("MeGustaCanal", new Object[]{ id_usaurio, idVideo});
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("MeGustaVideo", new Object[]{ id_usaurio, idVideo});
+        if(dicResul.size()>0){
+            resultado = dicResul.get(0).elementos.get("Resultado").toString();
+        }else{
+            resultado = "Error";
+        }
+        return resultado;
+    }
+    
+    public static String Favorito(String id_usaurio, String id_video){
+        String resultado = "";
+        Integer idVideo = Util.StringTryParsetoInt(id_video);
+        if(idVideo == null){ return "Error"; }
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("MarcarFavorito", new Object[]{ id_usaurio, idVideo});
         if(dicResul.size()>0){
             resultado = dicResul.get(0).elementos.get("Resultado").toString();
         }else{

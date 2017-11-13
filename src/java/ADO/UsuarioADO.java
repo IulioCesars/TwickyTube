@@ -52,4 +52,13 @@ public class UsuarioADO {
         }
         return resultado;
     }
+    
+    public static Usuario ObtenerCanalFavorito(String id_usuario){
+        Usuario resultado =  null;
+        List<Diccionario> dicResult = Pool.EjecutarStoredProcedure("ObtenerCanalFavorito", new Object[]{ id_usuario });
+        if(dicResult.size()>0){
+            resultado = new Usuario(dicResult.get(0));
+        }
+        return resultado;
+    }
 }

@@ -82,7 +82,7 @@ public class Publicacion extends HttpServlet {
         
         publicacion.contentTypeVideo = "video/mp4";
         publicacion.contentTypeVistaPrevia = "image/png";
-        publicacion.fk_usuario = "1";
+        publicacion.fk_usuario = usuario.id_usuario;
         
         String resultadoVideo = "";
         resultadoVideo = VideoADO.subir_video(publicacion);

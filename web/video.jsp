@@ -1,4 +1,7 @@
- <%@page import="ADO.UsuarioADO"%>
+ <%@page import="ADO.ComentarioADO"%>
+<%@page import="VO.Comentario"%>
+<%@page import="java.util.List"%>
+<%@page import="ADO.UsuarioADO"%>
 <%@page import="VO.Usuario"%>
 <%@page import="Helpers.Util"%>
 <%@page import="VO.Video"%>
@@ -9,7 +12,7 @@
     String idString = request.getParameter("id");
     Integer id = 0;
     Video video = null;
-    Usuario usuario = null;    
+    Usuario usuario = null;
     id = Util.StringTryParsetoInt(idString);
     if(id != null){
         video = VideoADO.Obtener(id);
@@ -18,6 +21,7 @@
         }
     }
     Usuario usuarioSession = (Usuario) session.getAttribute("usuario");
+    List<Comentario> comentarios = ComentarioADO.ObternerComentarios(video.id_video);
 %>
 
 <% if(  video != null 
@@ -51,7 +55,8 @@
 						
 						<span class='vid-main-subcontent'>
 							<img class='vid-main-sub-img' src='MostrarAvatar?id=<%= usuario.id_usuario %>'/>
-                                                        <label class='vid-main-sub-name'><a class='vid-main-user-link' href='canal.html'> <%= usuario.id_usuario %> </a></label>
+                                                        <label class='vid-main-sub-name'><a class='vid-main-user-link' href='canal.jsp?id=<%= video.fk_usuario %>'> <%= usuario.id_usuario %> </a></label>
+                                                        <label> <%= video.descripcion %> </label>
 
                                                         <% if(usuarioSession != null
                                                                 && usuarioSession.id_usuario != usuario.id_usuario) {%>
@@ -73,21 +78,24 @@
                                                 <% if(usuarioSession!=null){%>
 						<div class='glob-separate-top-bottom'>
 							<img class='vid-main-coments-img' onclick='mostrar_x();' src="MostrarAvatar?id=<%= usuarioSession.id_usuario %>">
-                                                        <label class='vid-main-coments-user'> <a href='canal.html'><%= usuarioSession.id_usuario %></a></label>
+                                                        <label class='vid-main-coments-user'> <a href='canal.jsp?id=<%= usuarioSession.id_usuario %>'><%= usuarioSession.id_usuario %></a></label>
                                                         <br>
                                                         <textarea id="txtComentarios" rows="4" cols="50" placeholder="Comentarios"></textarea>
                                                         <button type='button' class='   ' onclick='jsUtil.Comentar( $("#txtComentarios").val() ,"<%= video.id_video %>")'> Comentar </button>
 						</div>
                                                 <% } %>
+                                                
+                                                <% for(Comentario c : comentarios){ %>
 						<div class='glob-separate-top-bottom'>
-							<img class='vid-main-coments-img' onclick='mostrar_x();' src="resources/images/esteban.jpg">
-							<label class='vid-main-coments-user'> <a href='canal.html'>Esteban</a> <label class='vid-main-coments-date'>Hace 10 minutos</label> </label>
-							<label class='vid-main-coments-coment'> comentario yolo :v </label>
+							<img class='vid-main-coments-img' onclick='mostrar_x();' src="MostrarAvatar?id=<%= c.fk_usuario %>">
+							<label class='vid-main-coments-user'> <a href='canal.jsp?id=<%= c.fk_usuario %>'><%= c.fk_usuario %></a> <label class='vid-main-coments-date'><%= c.fecha.toString() %></label> </label>
+							<label class='vid-main-coments-coment'><%= c.comentario %></label>
 						</div>
-						
+						<% } %>
 					</div>
 				</div>
 				
+                                        <!--
 					<div class='vid-main vid-recomended'>
 					<span class='dbd-start-span'>
 						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
@@ -146,7 +154,7 @@
 						</a>
 					</span>
 					
-				</div>
+				</div>-->
 			</div>
 			
 			

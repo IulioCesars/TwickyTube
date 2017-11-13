@@ -25,15 +25,19 @@ public class Comentario extends EntidadGenerica{
     }
     
     public Comentario(Diccionario usr){
+        try{
         this.id_comentario = (int) super.ObtenerValor(usr.elementos.get("id_comentario"));
         this.fk_usuario = (String) super.ObtenerValor(usr.elementos.get("fk_usuario"));
         this.fk_video = (int) super.ObtenerValor(usr.elementos.get("fk_video"));
         this.comentario = (String) super.ObtenerValor(usr.elementos.get("comentario"));
         this.fecha = Util.convertStringToTimestamp(usr.elementos.get("fecha").toString());
+        }catch(Exception ex){
+            throw ex;
+        }
     }
     
     public String toJSON(){
-        return "{ 'fk_usuario':'" + this.fk_usuario + "', 'fk_video':" + this.fk_video + ", 'comentario':'" + this.comentario + "' }";
+        return "{ \"fk_usuario\":\"" + this.fk_usuario + "\", \"fk_video\":" + this.fk_video + ", \"comentario\":\"" + this.comentario + "\" }";
     }
 
 }
