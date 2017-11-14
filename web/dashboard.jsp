@@ -49,13 +49,17 @@
 
                 <% if(usuario != null) { %>
                     <div class='dbd-start'>
-                        <label class='idx-login-gen-label dbd-start-title'> Top Favoritos </label>
+                        <% if(videosFavoritos.size() > 0 ){ %>
+                            <label class='idx-login-gen-label dbd-start-title'> Top Favoritos </label>
+                        <% } %>
                         <% for(Video v : videosFavoritos){%>
                         <%= v.toHTML() %>
                         <% } %>
                     </div>
                     <div class='dbd-start'>
-                        <label class='idx-login-gen-label dbd-start-title'> Videos de <%= videosCanalFavorito.get(0).fk_usuario %> </label>
+                        <% if(videosCanalFavorito.size() > 0 ){ %>
+                            <label class='idx-login-gen-label dbd-start-title'> Videos de <%= videosCanalFavorito.get(0).fk_usuario %> </label>
+                        <% } %>
                         <% for(Video v : videosCanalFavorito){%>
                         <%= v.toHTML() %>
                         <% } %>

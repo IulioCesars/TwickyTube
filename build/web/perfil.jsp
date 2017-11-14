@@ -1,4 +1,17 @@
+<%@page import="Helpers.Rutas"%>
+<%@page import="ADO.UsuarioADO"%>
+<%@page import="VO.Usuario"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<% 
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    if(usuario != null){
+        usuario = UsuarioADO.Obtener(usuario.id_usuario);
+    }
+    if(usuario == null){
+        response.sendRedirect(Rutas.Dashboard);
+    }
+    else {
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,16 +27,12 @@
 -->
 	</head>
 	<body>
-            <jsp:include page="header.jsp" flush="true" />
-            <% 
-                VO.Usuario usuario = (VO.Usuario)session.getAttribute("usuario");
-            %>
-	
+            <jsp:include page="header.jsp" flush="true" />	
 		<!--
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 	
 		-->
-		
+                <form action="EditarUsuario" method='POST' enctype='multipart/form-data'>
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
                     <div id='idx-login' class='idx-login dbd-main per-content'>
                         <div class='dbd-start per-start-p'>
@@ -44,23 +53,25 @@
                                             <label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>
                                                 Fecha de Nacimiento 
                                             </label>
-                                            <input id='per-date' name="fNacimiento" class='glob-object-input habilita-deshabilita' type='date' value="<%= new SimpleDateFormat("yyyy-MM-dd").format(usuario.fecha_nacimiento)%>" disabled /> 	
+                                            <input id='per-date' name="fNacimiento" class='glob-object-input habilita-deshabilita' type='date' value="<%= new SimpleDateFormat("yyyy-MM-dd").format(usuario.fecha_nacimiento)%>" disabled requiered/> 	
                                         </span>
                                         <span class='per-panel-input'>
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Genero
                                             </label>
-                                            <select id='per-sel-genero' name='genero' class='glob-object-input habilita-deshabilita' disabled > 
-                                                <option> Masculino </option>
-                                                <option> Femenino </option>
-                                                <option> Prefiero no especificar </option>
+                                            <select required id='per-sel-genero' name='genero' class='glob-object-input habilita-deshabilita' disabled > 
+                                                <option selected hidden><% if(usuario.genero=="M")%>Masculino<% else %>Femenino</option>
+                                                <option>Masculino</option>
+                                                <option>Femenino</option>
+                                                <!--<option> Prefiero no especificar </option>-->
                                             </select>						
                                         </span>
                                         <span class='per-panel-input'>
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Ciudad
                                             </label>
-                                            <select id='per-sel-ciudad' name='ciudad' text="AAA" class='glob-object-input habilita-deshabilita' disabled > 
+                                            <select required id='per-sel-ciudad' name='ciudad' text="AAA" class='glob-object-input habilita-deshabilita' disabled > 
+                                                <option selected hidden> <%= usuario.ciudad %> </option>
                                                 <option> Apodaca </option>
                                                 <option> Cienega de Flores </option>
                                                 <option> Escobedo </option>
@@ -77,7 +88,8 @@
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Pais
                                             </label>
-                                            <select id='per-sel-pais' name='pais' class='glob-object-input habilita-deshabilita' disabled >
+                                            <select required id='per-sel-pais' name='pais' class='glob-object-input habilita-deshabilita' disabled >
+                                                <option selected hidden> <%= usuario.pais %> </option>
                                                 <option> Mexico </option>
                                                 <option> Estados Unidos de America</option>
                                             </select>
@@ -87,40 +99,43 @@
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Contraseña 
                                             </label>
-                                            <input id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Contraseña' disabled />
+                                            <input required id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Contraseña' disabled />
                                         </span>
                                         <span class='per-panel-input'>
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Repetir contraseña 
                                             </label>
-                                            <input id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Repetir contraseña' disabled />
+                                            <input required id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Repetir contraseña' disabled />
                                         </span>
                                         <span class='per-panel-input per-panel-input-img'>
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Imagen de avatar
                                             </label>
-                                            <input 	id='reg-img-avatar' name='img-avatar' class='glob-object-input habilita-deshabilita' type='file' disabled >
+                                            <input required	id='reg-img-avatar' name='img-avatar' class='glob-object-input habilita-deshabilita' type='file' disabled >
                                             <output id='reg-output-img-avatar' class='reg-output-img-avatar habilita-deshabilita' disabled></output>
                                         </span>
                                         <span class='per-panel-input per-panel-input-portada'>
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Imagen de portada
                                             </label>
-                                            <input 	id='reg-img-portada' name='img-portada' class='glob-object-input habilita-deshabilita' type='file' disabled >
+                                            <input required	id='reg-img-portada' name='img-portada' class='glob-object-input habilita-deshabilita' type='file' disabled >
                                             <output id='reg-output-img-portada' class='reg-output-img-portada habilita-deshabilita' disabled></output>
                                         </span>
 
+                                                
+                                        <!--
                                         <div class='per-block'>
                                             <input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-right per-object-submit per-object-save' type='submit' value='Guardar' disabled />
                                             <button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right per-object-submit per-object-edit' type='button' onclick="habilitar('PERFIL');"> Editar </button>	
                                         </div>
+                                        -->
                                     </div>
                             </span>
                             </form>        
                         </div>
                     </div>
 		</section>
-		
+                </form>
 		<footer>
 			<div class='glob-footer'>
 				
@@ -218,3 +233,4 @@ function archivo_portada(evt)
 	document.getElementById('reg-img-portada').addEventListener('change', archivo_portada, false);
 
 </script>
+<% } %>

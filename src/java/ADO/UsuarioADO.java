@@ -44,6 +44,21 @@ public class UsuarioADO {
         return resultado;
     }
     
+    public static String EditarUsuario(Usuario usuario) throws IOException{
+        String resultado = "";
+        resultado = (String) Pool.EjecutarStoredProcedureSimple("EditarUsuario", 
+                                new Object[] { usuario.id_usuario,
+                                               usuario.contraseña,
+                                               usuario.fecha_nacimiento.toString(),
+                                               usuario.genero,
+                                               usuario.ciudad,
+                                               usuario.pais,
+                                               usuario.partAvatar.getInputStream(),
+                                               usuario.partPortada.getInputStream()
+                                            });
+        return resultado;
+    }
+    
     public static Usuario Obtener(String id_usuario){
         Usuario resultado =  null;
         List<Diccionario> dicResult = Pool.EjecutarStoredProcedure("ObtenerUsuario", new Object[]{ id_usuario });
