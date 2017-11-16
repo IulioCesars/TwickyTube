@@ -50,32 +50,44 @@
                                 <section id='rep-registros'>
                                 
                                     <span class='rep-body-row'>
+                                        
                                         <img class='rep-body-row-image' src='resources/images/esteban.jpg'>
-                                        <span class='rep-body-row-tipoPost'><strong>Tipo de post: </strong> Comentario </span>
-                                        <label class='rep-body-row-date-title'> <strong>Tiempo de bloqueo:</strong> </label>
-                                        <input class='rep-body-row-date' type="date" disabled="true"/>
-                                        <label class='rep-body-row-date-checkbox'><strong>Indefinido - </strong><input type="checkbox" checked="checked"/></label>
-                                        <label class='rep-body-row-user'> <strong>Usuario:</strong> Esteban Carraza</label>
-                                        <label class='rep-body-row-date-title'> <strong>Razon de bloqueo:</strong> </label>
-                                        <select class='rep-body-row-date-title'> 
-                                            <option>Video no apropiado</option>
-                                            <option>Odio los gatos</option>
-                                            <option>Porque si >:v</option>
-                                        </select>
-                                        <button class='rep-body-row-date-button' type='button'> Bloquear </button>
-                                        <span class='rep-body-row-post'><strong>Reporte: </strong> Eso es muy ofensivo alv D:< </span>
-                                        <span class='rep-body-row-post'>
-                                            <strong class='rep-body-row-post-title'>Post: </strong> 
-                                            <span  class='rep-body-row-post-body'> 
-                                                Hola como estas? :D
-                                                Hola como estas? :D
-                                                Hola como estas? :D
-                                                Hola como estas? :D
-                                                Hola como estas? :D
-                                                Hola como estas? :D
-                                                Hola como estas? :D
+                                        <article class='rep-body-row-row'>
+                                            <span class='rep-body-row-tipoPost'><strong>Tipo de post: </strong> Comentario </span>
+                                            <section>
+                                                <label class='rep-body-row-date-title'> <strong>Tiempo de bloqueo:</strong> </label>
+                                                <input class='rep-body-row-date' type="date" disabled="true"/>
+                                                <label class='rep-body-row-date-checkbox'><strong>Indefinido - </strong><input type="checkbox" checked="checked"/></label>
+                                            </section>
+                                        </article>
+                                        <article class='rep-body-row-row'>
+                                            <label class='rep-body-row-user'> <strong>Usuario:</strong> Esteban Carraza</label>
+                                            <label class='rep-body-row-date-title'> <strong>Razon de bloqueo:</strong> </label>
+                                            <select class='rep-body-row-date-razon'> 
+                                                <option>Video no apropiado</option>
+                                                <option>Odio los gatos</option>
+                                                <option>Porque si >:v</option>
+                                            </select>
+                                        </article>
+                                        <article class='rep-body-row-row'>
+                                            <button class='rep-body-row-date-button' type='button'> Bloquear </button>
+                                            <label class='rep-body-row-input'><input class='' type='text' placeholder='Escribe aqui un comentario para el usuario'/></label>
+                                            <span class='rep-body-row-reporte'><strong>Reporte: </strong> Eso es muy ofensivo alv D:< </span>
+                                        </article>
+                                        <article class='rep-body-row-row'>
+                                            <span class='rep-body-row-post'>
+                                                <strong class='rep-body-row-post-title'>Post: </strong> 
+                                                <span  class='rep-body-row-post-body'> 
+                                                    Hola como estas? :D
+                                                    Hola como estas? :D
+                                                    Hola como estas? :D
+                                                    Hola como estas? :D
+                                                    Hola como estas? :D
+                                                    Hola como estas? :D
+                                                    Hola como estas? :D
+                                                </span>
                                             </span>
-                                        </span>
+                                        </article>
                                     </span>
                                     
                                     <span class='rep-body-row'>

@@ -66,10 +66,17 @@
 						<span class='vid-main-subcontent vid-main-like'>
                                                         <% if(usuarioSession != null
                                                                     && usuarioSession.id_usuario != usuario.id_usuario) {%>
-                                                        <button title='Reportar' onclick="jsUtil.Reportar(<%= video.id_video %>)" ><img src='resources/images/report_01.png'> </button>
-                                                        <button title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img src='resources/images/like_01.png'> </button>
-							<button title='Favoritos'onclick="jsUtil.Favorito(<%= video.id_video %>)" ><img src='resources/images/favorites_01.png'> </button>
+                                                            
+                                                            <button class='vid-main-like-button' title='Reportar' onclick="jsUtil.Reportar(<%= video.id_video %>)" ><img src='resources/images/report_01.png'> </button>
+                                                        <label class='vid-main-like-label'>9K</label>
+                                                        <button class='vid-main-like-button' title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img src='resources/images/like_01.png'> </button>
+                                                        <label class='vid-main-like-label'>9M</label>
+							<button class='vid-main-like-button' title='Favoritos'onclick="jsUtil.Favorito(<%= video.id_video %>)" ><img src='resources/images/favorites_01.png'> </button>
+                                                        
                                                         <% } %>
+                                                </span>
+                                                <span class='vid-main-subcontent vid-main-like vid-main-like-visitas'>
+                                                    <strong>Visitas 9.5M</strong>
                                                 </span>
 						
 					</div>
@@ -80,7 +87,7 @@
 							<img class='vid-main-coments-img' onclick='mostrar_x();' src="MostrarAvatar?id=<%= usuarioSession.id_usuario %>">
                                                         <label class='vid-main-coments-user'> <a href='canal.jsp?id=<%= usuarioSession.id_usuario %>'><%= usuarioSession.id_usuario %></a></label>
                                                         <br>
-                                                        <textarea id="txtComentarios" rows="4" cols="50" placeholder="Comentarios"></textarea>
+                                                        <textarea id="txtComentarios" rows="4" cols="50" placeholder="Escribe aqui tu comentario"></textarea>
                                                         <button type='button' class='   ' onclick='jsUtil.Comentar( $("#txtComentarios").val() ,"<%= video.id_video %>")'> Comentar </button>
 						</div>
                                                 <% } %>
