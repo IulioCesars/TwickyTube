@@ -905,7 +905,167 @@
 	/*overflow:auto;*/
 	
 }
-
+.rep-head
+{
+    overflow:auto;
+}
+.rep-head-title
+{
+    
+    font-size: 120%;
+    float:left;
+    padding:2%;
+    box-sizing: border-box;
+}
+.rep-head-filter
+{
+    overflow:auto;
+    width:80%;
+    float:right;
+    text-align:right;
+    padding:1%;
+    box-sizing: border-box;
+    
+}
+.rep-head-objects
+{
+    border-radius: 2px;
+    padding:1%;
+    box-sizing: border-box;   
+}
+.rep-head-buttons
+{
+    background-color:whitesmoke;
+    color:#353535;
+    
+}
+.rep-head-buttons:hover, .rep-head-buttons:focus
+{
+    background-color:#3090B0;
+    color:whitesmoke;
+}
+.rep-body-row
+{
+    float:left;
+    background-color: whitesmoke;
+    overflow:hidden;
+    width:100%;
+    
+    padding:1%;
+    
+    margin-bottom:1%;
+    box-sizing: border-box;
+}
+.rep-body-row-image
+{
+    height:100px;
+    width:100px;
+    
+    float:left;
+    border-radius:50%;
+    padding:1%;
+    box-sizing: border-box;
+}
+.rep-body-row-user
+{
+    
+    float:left;
+    padding:1%;
+    width:calc(100% - 100px - 47.5%);
+    box-sizing:border-box;
+}
+.rep-body-row-tipoPost
+{
+    text-align:left;
+    float:left;
+    padding:1%;
+    width:calc(100% - 100px - 47.5%);
+    
+    box-sizing:border-box;
+}
+.rep-body-row-post
+{
+    width:calc(100% - 100px);
+    float:right;
+    padding:1%;
+    box-sizing: border-box;
+}
+.rep-body-row-date,
+.rep-body-row-date-checkbox,
+.rep-body-row-date-button,
+.rep-body-row-date-title
+{
+    background-color:rgba(1,1,1,0);
+    text-align: right;
+    float:left;
+    padding:1%;
+    box-sizing: border-box;
+    height:50px;
+}
+.rep-body-row-date-title
+{
+    text-align:left;
+    
+    margin-left:0.5%;
+    margin-right: 0.5%;
+    width:17%;
+}
+.rep-body-row-date, .rep-body-row-date:disabled
+{
+    width:calc(14%);
+    
+    
+}
+.rep-body-row-date-checkbox
+{
+    width:calc(12%);
+    cursor:pointer;
+    
+}
+.rep-body-row-date-button
+{
+    cursor:pointer;
+    border-radius:3px;
+    text-align:center;
+    width:calc(10%);
+    background-color:#2980B9;
+    color:whitesmoke;
+    
+}
+.rep-body-row-date-button:hover
+{
+    background-color:#2080A0;
+    color:whitesmoke;
+}
+.rep-body-row strong
+{
+    font-weight:bold;
+    font-size: 100%;
+    color:black;
+}
+.rep-body-row-post-title
+{
+    widht:100%;
+    float:left;
+    
+    padding:1%;
+    padding-left:0px;
+    box-sizing: border-box;
+}
+.rep-body-row-post-body
+{
+    float:left;
+    width:100%;
+    padding:2%;
+    box-sizing: border-box;
+    
+}
+.rep-body-row video
+{
+    
+    float:left;
+    width:50%;
+}
 /* ANIMACIONES */
 @keyframes idx-aparecer
 {

@@ -8,6 +8,17 @@ COLOR NEGRO: #454545;
 COLOR FONDO: rgba(226,226,266,1);
 COLOR AZUL FOCUS/HOVER: #2980B9;
 COLOR AZUL FONDO NUEVO: rgba(48,144,176,1);
+
+Head buttons
+{
+    background-color:whitesmoke;
+    color:#353535;
+}
+Head buttons:hover, Head buttons:focus
+{
+    background-color:#3090B0;
+    color:whitesmoke;
+}
 */
 *
 {
