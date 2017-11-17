@@ -1,3 +1,24 @@
+<%@page import="ADO.VideoADO"%>
+<%@page import="ADO.UsuarioADO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="VO.Video"%>
+<%@page import="VO.Video"%>
+<%@page import="VO.Video"%>
+<%@page import="VO.Usuario"%>
+<%@page import="Helpers.Rutas"%>
+<%@page import="com.mysql.jdbc.StringUtils"%>
+<%
+    String id = request.getParameter("id");
+    Usuario usuario = null;
+    List<Video> videos = new ArrayList<Video>();
+    if(StringUtils.isEmptyOrWhitespaceOnly(id)){
+        response.sendRedirect(Rutas.Dashboard);
+    }else{
+        usuario = UsuarioADO.Obtener(id);
+        videos = VideoADO.ObtenerVideosCanal(id);
+%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,24 +36,10 @@
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 			<div id='idx-login' class='idx-login dbd-main'>
 				<div class='dbd-start'>
-					<label class='idx-login-gen-label dbd-start-title'> Ultimos videos </label>
-					<span class='dbd-start-span'>
-						<a href='video.jsp?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					</div>
-					<div class='dbd-start'>
-					<label class='idx-login-gen-label dbd-start-title'> Videos más populares </label>
-					<span class='dbd-start-span'>
-						<a href='video.jsp?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
+					<label class='idx-login-gen-label dbd-start-title'> Videos de <%= usuario.id_usuario %> </label>
+                                        <% for(Video v : videos){%>
+                                        <%= v.toHTML() %>
+                                        <% } %>
 				</div>
 			</div>
 		</section>
@@ -73,3 +80,4 @@
 
 	</body>
 </html>
+<% } %>

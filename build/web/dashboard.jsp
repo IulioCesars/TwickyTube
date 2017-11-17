@@ -1,3 +1,5 @@
+<%@page import="ADO.UsuarioADO"%>
+<%@page import="com.mysql.jdbc.StringUtils"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="VO.Usuario"%>
 <%@page import="VO.Video"%>
@@ -5,6 +7,16 @@
 <%@page import="java.util.List"%>
 <%@page import="ADO.VideoADO"%>
 <% 
+    String f = request.getParameter("f");
+    String fInicio = request.getParameter("fi");
+    String fFinal = request.getParameter("ff");
+    List<Video> videosBusqueda = new ArrayList<Video>();
+    List<Usuario> usuariosBusqueda = new ArrayList<Usuario>();
+    if(!StringUtils.isEmptyOrWhitespaceOnly(f)){
+        videosBusqueda = VideoADO.BuscarVideos(f, fInicio, fFinal);
+        usuariosBusqueda = UsuarioADO.Buscar(f);
+    }
+    
     List<Video> videosPopulares = VideoADO.ObtenerVideosPopulares();
     List<Video> videosRecientes = VideoADO.ObtenerVideosRecientes();
     Usuario usuario = (Usuario) session.getAttribute("usuario");
@@ -30,9 +42,11 @@
     </head>
     <body>
         <jsp:include page="header.jsp" flush="true" />
-
+        
+        
         <section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
             <div id='idx-login' class='idx-login dbd-main'>
+                <%if(StringUtils.isEmptyOrWhitespaceOnly(f)) {%>
                 <div class='dbd-start'>
                     <label class='idx-login-gen-label dbd-start-title'> Más populares </label>
                     <% for(Video v : videosPopulares){%>
@@ -66,8 +80,23 @@
                     </div>
                 <% } %>
             </div>
+            <% } else {%>
+                <div class='dbd-start'>
+                        <label class='idx-login-gen-label dbd-start-title'>Videos resultado de buscar <%= f %></label>
+                        <% for(Usuario u : usuariosBusqueda){%>
+                        <%= u.toHTML() %>
+                        <% } %>
+                </div>
+            
+                <div class='dbd-start'>
+                        <label class='idx-login-gen-label dbd-start-title'>Videos resultado de buscar <%= f %></label>
+                        <% for(Video v : videosBusqueda){%>
+                        <%= v.toHTML() %>
+                        <% } %>
+                </div>
+            <% } %>
         </section>
-
+            
         <footer>
             <div class='glob-footer'>
                 <div>

@@ -1,6 +1,7 @@
 
 	<link href='css/glob-style.css?v=1.1.3' type='text/css' rel='stylesheet'>
 	<script src="js/header.js?v=1" type="text/javascript"></script>
+        <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
 
 <%
 
@@ -13,7 +14,7 @@
 
 <header>
 	<nav class='glob-header'>
-		<form>
+                <form action="Busqueda" method="GET">
 			<a class='glob-header-logo' href='dashboard.jsp'> 
                             <img src='resources/images/TwickyTube_01.png'> 
                         </a>
@@ -35,8 +36,8 @@
                             </button>
                         <% } %>
                         <div class='glob-header-search'>
-				<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
-				<input class='glob-header-search-input' type='search' placeholder='Buscar...' />
+                                <button name = "btnBuscar" type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
+                                <input name = "txtBusqueda" class='glob-header-search-input' type='search' placeholder='Buscar...' />
 			</div>
 		</form>
 	</nav>
@@ -47,7 +48,7 @@
                 <li><a href='reportes.jsp'> Reportes de usuarios </a></li>
 		<li><a href='subscripciones.jsp'> Subscripciones </a></li>
 		<li><a href='subscriptores.jsp'> Subscriptores </a></li>
-		<li><a href='index.jsp'> Cerrar sesión </a></li>
+		<li><a href='CerrarSesion'> Cerrar sesión </a></li>
 	</ul>
 	<ul id='glob-header-menu-01' class='glob-header-menu-list'>
 		<li> Subir un video </li>
