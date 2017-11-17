@@ -41,4 +41,13 @@ public class Usuario extends EntidadGenerica{
         this.pais = (String) super.ObtenerValor(usr.elementos.get("pais"));
         this.perfil = (String) super.ObtenerValor(usr.elementos.get("perfil"));
     }
+    
+    public String toHTML(){
+        return "<span class='dbd-start-span'>\n" +
+                    "<a href='canal.jsp?id=" + this.id_usuario  +"' class='dbd-start-video-label'>\n" +
+                        "<img class='dbd-start-video-label-content' src='MostrarAvatar?id=" + this.id_usuario + "'/>\n" +
+                        "<label class='dbd-start-video-label-title'> " + this.id_usuario + " </label>\n" +
+                    "</a>\n" +
+                "</span>";
+    }
 }

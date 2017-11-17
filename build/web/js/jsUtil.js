@@ -30,7 +30,15 @@ class jsUtil{
         }
         
         static MeGusta(id_video){
-            this.Ajax("MeGusta", id_video, (result)=>{ alert(result); });
+            this.Ajax("MeGusta", id_video, (result)=>{ 
+                if(result == "Me Gusta"){
+                    $("#btnLike").attr("src","resources/images/dislike_01.png");
+                    $("#lblLike").text( parseInt( $("#lblLike").text()) +1 );
+                }else{
+                    $("#btnLike").attr("src","resources/images/like_01.png");
+                    $("#lblLike").text( parseInt( $("#lblLike").text()) -1 );
+                }
+            });
         }
         
         static Reportar(id_video){

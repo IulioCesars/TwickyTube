@@ -67,16 +67,16 @@
                                                         <% if(usuarioSession != null
                                                                     && usuarioSession.id_usuario != usuario.id_usuario) {%>
                                                             
-                                                            <button class='vid-main-like-button' title='Reportar' onclick="jsUtil.Reportar(<%= video.id_video %>)" ><img src='resources/images/report_01.png'> </button>
-                                                        <label class='vid-main-like-label'>9K</label>
-                                                        <button class='vid-main-like-button' title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img src='resources/images/like_01.png'> </button>
-                                                        <label class='vid-main-like-label'>9M</label>
+                                                        <button class='vid-main-like-button' title='Reportar' onclick="jsUtil.Reportar(<%= video.id_video %>)" ><img src='resources/images/report_01.png'> </button>
+                                                        <label id="lblLike" class='vid-main-like-label'><%= video.megusta %></label>
+                                                        <button class='vid-main-like-button' title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img id="btnLike" src='resources/images/like_01.png'> </button>
+                                                        <!--<label class='vid-main-like-label'>9M</label>-->
 							<button class='vid-main-like-button' title='Favoritos'onclick="jsUtil.Favorito(<%= video.id_video %>)" ><img src='resources/images/favorites_01.png'> </button>
                                                         
                                                         <% } %>
                                                 </span>
                                                 <span class='vid-main-subcontent vid-main-like vid-main-like-visitas'>
-                                                    <strong>Visitas 9.5M</strong>
+                                                    <strong>Visitas <%= video.vistas %></strong>
                                                 </span>
 						
 					</div>

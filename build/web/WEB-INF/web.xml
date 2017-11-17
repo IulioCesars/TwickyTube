@@ -32,6 +32,14 @@
         <servlet-name>reportes</servlet-name>
         <servlet-class>Servlets.reportes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CerrarSesion</servlet-name>
+        <servlet-class>Servlets.CerrarSesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Busqueda</servlet-name>
+        <servlet-class>Servlets.Busqueda</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>reportes</servlet-name>
         <url-pattern>/reportes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CerrarSesion</servlet-name>
+        <url-pattern>/CerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Busqueda</servlet-name>
+        <url-pattern>/Busqueda</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

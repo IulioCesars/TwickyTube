@@ -6,6 +6,7 @@ import Helpers.Pool;
 import VO.Usuario;
 import VO.Video;
 import com.mysql.jdbc.StringUtils;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -149,6 +150,47 @@ public class VideoADO
             }
         }
         
+        return resultado;
+    }
+    
+    public static List<Video> ObtenerVideosCanal(String id_usuario){
+        List<Video> resultado = new ArrayList<Video>();
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("ObtenerVideosCanal", new Object[]{ id_usuario, 10 });
+        if(dicResul.size()>0){
+            for(Diccionario d : dicResul){
+                try{
+                    resultado.add( new Video(d));
+                }
+                catch(Exception ex){
+                
+                }
+            }
+        }
+        
+        return resultado;
+    }
+    
+    public static List<Video> BuscarVideos(String Filtro, String fInicio, String fFinal){
+        List<Video> resultado = new ArrayList<Video>();
+        Timestamp tsInicio = Helpers.Util.convertStringToTimestamp(fInicio);      
+        Timestamp tsFinal = Helpers.Util.convertStringToTimestamp(fFinal);
+        
+        if(tsInicio==null)
+            tsInicio = Helpers.Util.convertStringToTimestamp("2017-01-01");  
+        if(tsFinal==null)
+            tsFinal =  Helpers.Util.convertStringToTimestamp("2017-12-31");    
+        
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("BuscarVideos", new Object[]{ Filtro, Filtro, Filtro, tsInicio, tsFinal});
+        if(dicResul.size()>0){
+            for(Diccionario d : dicResul){
+                try{
+                    resultado.add( new Video(d));
+                }
+                catch(Exception ex){
+                
+                }
+            }
+        }
         return resultado;
     }
     

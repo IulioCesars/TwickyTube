@@ -7,8 +7,10 @@ package ADO;
 import Helpers.Pool;
 import Helpers.Diccionario;
 import VO.Usuario;
+import VO.Video;
 import java.io.IOException;
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -64,6 +66,22 @@ public class UsuarioADO {
         List<Diccionario> dicResult = Pool.EjecutarStoredProcedure("ObtenerUsuario", new Object[]{ id_usuario });
         if(dicResult.size()>0){
             resultado = new Usuario(dicResult.get(0));
+        }
+        return resultado;
+    }
+    
+    public static List<Usuario> Buscar(String Filtro){
+        List<Usuario> resultado = new ArrayList<Usuario>();
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("BuscarUsuario", new Object[]{ Filtro });
+        if(dicResul.size()>0){
+            for(Diccionario d : dicResul){
+                try{
+                    resultado.add( new Usuario(d));
+                }
+                catch(Exception ex){
+                
+                }
+            }
         }
         return resultado;
     }
