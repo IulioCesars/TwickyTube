@@ -374,6 +374,22 @@ overflow:auto;
 {
     color:red;
 }
+.glob-object-button-login
+{
+    cursor:pointer;
+    float:right;
+    padding:1%;
+    box-sizing: border-box;
+}
+.glob-object-button-login:hover
+{
+    
+    color:whitesmoke;
+    background-color:#2980B9;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(1,1,1,1.0);
+    -moz-box-shadow: 	0px 0px 5px 0px rgba(1,1,1,1.0);
+    box-shadow: 	0px 0px 5px 0px rgba(1,1,1,1.0);
+}
 @media screen and (max-width: 800px)  
 {
 	.glob-header-upload
@@ -419,8 +435,8 @@ overflow:auto;
 	.glob-header-search-img
 	{
 		background-color:whitesmoke;
-			-webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.0);
-	-moz-box-shadow: 	0px 0px 2px 2px rgba(0,0,0,0.0);
-	box-shadow: 		0px 0px 2px 2px rgba(0,0,0,0.0);
+                -webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.0);
+                -moz-box-shadow: 	0px 0px 2px 2px rgba(0,0,0,0.0);
+                box-shadow: 		0px 0px 2px 2px rgba(0,0,0,0.0);
 	}
 }

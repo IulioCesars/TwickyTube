@@ -41,7 +41,9 @@
                                     <input class='per-panel-01-w100 center-text' type='text' value='<%= usuario.correo %>' readonly />
                                     <input class='per-panel-01-w100 center-text per-lbl-alias' type='text' value='<%= usuario.id_usuario %>' readonly />
                             </span>
-
+                            <span class='per-panel-03'>
+                                <img src='resources/images/video_01.png'>
+                            </span>
                             <form action="" method="" enctype="multipart/form-data">
                             <span class='dbd-start-span per-start per-panel-02'>
                                 <div class='per-panel-02-into'>

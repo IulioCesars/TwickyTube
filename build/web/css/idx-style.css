@@ -615,6 +615,12 @@
 	box-sizing:border-box;
 	
 }
+.per-panel-03
+{
+    float:left;
+    background-color:red;
+    width:75%;
+}
 .per-panel-01-w100
 {
 	

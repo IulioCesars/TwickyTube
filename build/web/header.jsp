@@ -29,7 +29,11 @@
                             </button>
                             <img class='glob-header-upload glob-object-submit-right' src='resources/images/upload.png' onclick="location='upload.jsp'">
 			<% } %>
-                        
+                        <% if(usuario == null) {%>
+                            <button type='button' onclick="location='index.jsp'" class='glob-object-button-login' type='button'> 
+                                    Iniciar sesión
+                            </button>
+                        <% } %>
                         <div class='glob-header-search'>
 				<button type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
 				<input class='glob-header-search-input' type='search' placeholder='Buscar...' />
