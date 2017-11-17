@@ -28,6 +28,10 @@
         <servlet-name>EditarUsuario</servlet-name>
         <servlet-class>Servlets.EditarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>reportes</servlet-name>
+        <servlet-class>Servlets.reportes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>EditarUsuario</servlet-name>
         <url-pattern>/EditarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>reportes</servlet-name>
+        <url-pattern>/reportes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

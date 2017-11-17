@@ -44,6 +44,7 @@
 		<li><a href='canal.jsp'> Mi canal </a></li>
 		<li><a href='perfil.jsp'> Mi perfil </a></li>
 		<li><a href='favoritos.jsp'> Favoritos </a></li>
+                <li><a href='reportes.jsp'> Reportes de usuarios </a></li>
 		<li><a href='subscripciones.jsp'> Subscripciones </a></li>
 		<li><a href='subscriptores.jsp'> Subscriptores </a></li>
 		<li><a href='index.jsp'> Cerrar sesión </a></li>

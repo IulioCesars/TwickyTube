@@ -19,6 +19,6 @@ public class Rutas {
     public static final String CrearUsuarioFallido = "index.jsp";  
     public static final String CarpetaParaSubirArchivos = "/archivos/";
     public static final String Upload = "upload.jsp";
-
+    public static final String Reportes = "reportes.jsp";
     
 }
