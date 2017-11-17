@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/VO/Video.java</file>
+            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/perfil.jsp</file>
             <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/reportes.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/css/idx-style.css</file>
+            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Helpers/Rutas.java</file>
+            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/VO/Reporte.java</file>
+            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/ADO/ReporteADO.java</file>
         </group>
     </open-files>
 </project-private>
