@@ -608,18 +608,23 @@
 	overflow:hidden;
 	background-color:#2980B9;
 	width:25%;
-	height:100%;
+	height:1000px;
 	float:left;
 	padding:0px;
-	border-radius:5px;
+	
 	box-sizing:border-box;
 	
 }
 .per-panel-03
 {
     float:left;
-    background-color:red;
+    
     width:75%;
+}
+.per-panel-03 img
+{
+    height:380px;
+    width:100%;
 }
 .per-panel-01-w100
 {

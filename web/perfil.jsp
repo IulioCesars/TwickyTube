@@ -32,7 +32,7 @@
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
 	
 		-->
-                <form action="EditarUsuario" method='POST' enctype='multipart/form-data'>
+                <form action="EditarUsuario" method='POST' enctype='multipart/form-data' >
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
                     <div id='idx-login' class='idx-login dbd-main per-content'>
                         <div class='dbd-start per-start-p'>
@@ -42,15 +42,11 @@
                                     <input class='per-panel-01-w100 center-text per-lbl-alias' type='text' value='<%= usuario.id_usuario %>' readonly />
                             </span>
                             <span class='per-panel-03'>
-                                <img src='resources/images/video_01.png'>
+                                <img src='MostrarPortada?id=<%= usuario.id_usuario %>'>
                             </span>
                             <form action="" method="" enctype="multipart/form-data">
                             <span class='dbd-start-span per-start per-panel-02'>
                                 <div class='per-panel-02-into'>
-                                        <div class='per-block'>
-                                            <input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-right per-object-submit per-object-save' type='submit' value='Guardar' disabled />
-                                            <button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right per-object-submit per-object-edit' type='button' onclick="habilitar('PERFIL');"> Editar </button>	
-                                        </div>
                                         <span class='per-panel-input'>
                                             <label id='reg-dat-fecha-nac' name='fecha-nac' class='idx-login-gen-label idx-login-description'>
                                                 Fecha de Nacimiento 
@@ -103,11 +99,14 @@
                                             </label>
                                             <input required id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Contraseña' disabled />
                                         </span>
-                                        <span class='per-panel-input'>
+                                        
+                                        
+                                        <span class='per-panel-input per-panel-input-portada'>
                                             <label class='idx-login-gen-label idx-login-description'>
-                                                Repetir contraseña 
+                                                Imagen de portada
                                             </label>
-                                            <input required id='reg-psw-contrasenia-02' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Repetir contraseña' disabled />
+                                            <input required	id='reg-img-portada' name='img-portada' class='glob-object-input habilita-deshabilita' type='file' disabled >
+                                            <output id='reg-output-img-portada' class='reg-output-img-portada habilita-deshabilita' disabled></output>
                                         </span>
                                         <span class='per-panel-input per-panel-input-img'>
                                             <label class='idx-login-gen-label idx-login-description'>
@@ -116,14 +115,11 @@
                                             <input required	id='reg-img-avatar' name='img-avatar' class='glob-object-input habilita-deshabilita' type='file' disabled >
                                             <output id='reg-output-img-avatar' class='reg-output-img-avatar habilita-deshabilita' disabled></output>
                                         </span>
-                                        <span class='per-panel-input per-panel-input-portada'>
-                                            <label class='idx-login-gen-label idx-login-description'>
-                                                Imagen de portada
-                                            </label>
-                                            <input required	id='reg-img-portada' name='img-portada' class='glob-object-input habilita-deshabilita' type='file' disabled >
-                                            <output id='reg-output-img-portada' class='reg-output-img-portada habilita-deshabilita' disabled></output>
-                                        </span>
-
+                                        
+                                        <div class='per-block'>
+                                            <input id='reg-btn-registrarme' name='registrarme' class='glob-object-submit glob-object-submit-right per-object-submit per-object-save' type='submit' value='Guardar' disabled />
+                                            <button id='reg-btn-regresar' name='regresar' class='glob-object-submit glob-object-submit-right per-object-submit per-object-edit' type='button' onclick="habilitar('PERFIL');"> Editar </button>	
+                                        </div>
                                                 
                                         <!--
                                         <div class='per-block'>
