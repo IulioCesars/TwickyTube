@@ -42,7 +42,7 @@
 		</form>
 	</nav>
 	<ul id='glob-header-menu-02' class='glob-header-menu-list'>
-		<li><a href='canal.jsp'> Mi canal </a></li>
+		<li><a href='canal.jsp?id=<%= usuario.id_usuario %>'> Mi canal </a></li>
 		<li><a href='perfil.jsp'> Mi perfil </a></li>
 		<li><a href='favoritos.jsp'> Favoritos </a></li>
                 <li><a href='reportes.jsp'> Reportes de usuarios </a></li>
