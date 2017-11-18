@@ -1,3 +1,4 @@
+<%@page import="ADO.CompartidoADO"%>
 <%@page import="VO.Reporte"%>
 <%@page import="Helpers.Respuestas"%>
 <%@page import="ADO.VideoADO"%>
@@ -15,13 +16,15 @@
     String id = request.getParameter("id");
     Usuario usuario = null;
     List<Video> videos = new ArrayList<Video>();
+    List<Video> videosCompartidos = new ArrayList<Video>();
+    
     if(StringUtils.isEmptyOrWhitespaceOnly(id)){
         response.sendRedirect(Rutas.Dashboard);
     }else
     {
         usuario = UsuarioADO.Obtener(id);
         videos = VideoADO.ObtenerVideosCanal(id);
-       
+       videosCompartidos = CompartidoADO.ObtenerVideosCompartidosPorUsuario(id);
     
 %>
 <% 
@@ -70,6 +73,13 @@
 				<div class='dbd-start'>
 					<label class='idx-login-gen-label dbd-start-title'> Videos de <%= usuario.id_usuario %> </label>
                                         <% for(Video v : videos){%>
+                                        <%= v.toHTML() %>
+                                        <% } %>
+				</div>
+                                
+                                <div class='dbd-start'>
+					<label class='idx-login-gen-label dbd-start-title'> Videos compartidos de <%= usuario.id_usuario %> </label>
+                                        <% for(Video v : videosCompartidos){%>
                                         <%= v.toHTML() %>
                                         <% } %>
 				</div>

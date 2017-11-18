@@ -8,6 +8,7 @@ package ADO;
 import Helpers.Diccionario;
 import Helpers.Pool;
 import VO.Compartido;
+import VO.Video;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class CompartidoADO {
             return "Error al compartir, intente mas tarde";
     }
     
-    public List<Compartido> ObtenerVideosCompartidos(){
+    public static List<Compartido> ObtenerVideosCompartidos(){
         List<Compartido> resultado = new ArrayList<Compartido>();
         List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("ObtenerVideosCompartidos");
         if(dicResul.size()>0){
@@ -42,13 +43,13 @@ public class CompartidoADO {
         return resultado;
     }
     
-    public List<Compartido> ObtenerVideosCompartidosPorUsuario(String id_usuario){
-        List<Compartido> resultado = new ArrayList<Compartido>();
+    public static List<Video> ObtenerVideosCompartidosPorUsuario(String id_usuario){
+        List<Video> resultado = new ArrayList<Video>();
         List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("ObtenerVideosCompartidosPorUsuario", new Object[]{ id_usuario });
         if(dicResul.size()>0){
             for(Diccionario c : dicResul){
                 try{
-                    resultado.add( new Compartido(c));
+                    resultado.add( new Video(c));
                 }
                 catch(Exception ex){
                 

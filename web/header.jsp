@@ -42,6 +42,7 @@
 		</form>
 	</nav>
 	<ul id='glob-header-menu-02' class='glob-header-menu-list'>
+                <% if(usuario != null) {%>
 		<li><a href='canal.jsp?id=<%= usuario.id_usuario %>'> Mi canal </a></li>
 		<li><a href='perfil.jsp'> Mi perfil </a></li>
 		<li><a href='favoritos.jsp'> Favoritos </a></li>
@@ -49,6 +50,7 @@
 		<li><a href='subscripciones.jsp'> Subscripciones </a></li>
 		<li><a href='subscriptores.jsp'> Subscriptores </a></li>
 		<li><a href='CerrarSesion'> Cerrar sesión </a></li>
+                <% } %>
 	</ul>
 	<ul id='glob-header-menu-01' class='glob-header-menu-list'>
 		<li> Subir un video </li>
