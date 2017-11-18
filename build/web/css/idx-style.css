@@ -200,6 +200,8 @@
 }
 .dbd-start-span
 {
+    min-height: 250px;
+    height:250px;
 	float:left;
 	width:20%;
 	padding:1%;
