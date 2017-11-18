@@ -1,3 +1,19 @@
+<%@page import="VO.Usuario"%>
+<%@page import="Helpers.Rutas"%>
+<%@page import="ADO.VideoADO"%>
+<%@page import="VO.Video"%>
+<%@page import="java.util.List"%>
+<%
+
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    if(usuario==null){
+        response.sendRedirect(Rutas.Dashboard);
+    }
+    else{
+    List<Video> videosFav = VideoADO.ObtenerFavoritos(usuario.id_usuario);
+
+%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,83 +31,49 @@
             <jsp:include page="header.jsp" flush="true" />
 
 		<section onclick="mostrar(true, 'MENU-OPC-OCULTAR');">
-			<div id='idx-login' class='idx-login dbd-main'>
-				<div class='dbd-start'>
-					<label class='idx-login-gen-label dbd-start-title'> Mis favoritos </label>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					
-				</div>
-				
-			</div>
+                    <div id='idx-login' class='idx-login dbd-main'>
+                        <div class='dbd-start'>
+                            <label class='idx-login-gen-label dbd-start-title'> Mis favoritos </label>
+                            <% for(Video v : videosFav){%>
+                            <%= v.toHTML() %>
+                            <% } %>
+
+                        </div>
+
+                    </div>
 		</section>
 		
 
 
 		<footer>
-			<div class='glob-footer'>
-				
-				<div>
-					<label>Conocenos</label>
-					<ul>
-						
-						<li><a href='about.html'>Acerca de</a></li>
-						<li><a href='privacity.html'>Privacidad</a></li>
-						<li><a href='contacto.html'> Contacto </a></li>
-						<li><a href='index.html'> Inicio</a></li>
-					</ul>
-				</div>
-					
-				<div>
-					<label>Otros sitios</label>
-					<ul>
-						
-						<li><a href='#'>Twicky Games</a></li>
-						<li><a href='http://www.twicky.com.mx/lab'>Twicky Lab</a></li>
-						<li><a href='http://www.twicky.com.mx'>Twicky</a></li>
-						
-					</ul>
-				</div>
-			
-				<div class='glob-footer-footer'>
-					<label> &#169; Twicky 2017</label>
-				</div>
-			</div>
-			
+                    <div class='glob-footer'>	
+                        <div>
+                            <label>Conocenos</label>
+                            <ul>	
+                                <li><a href='about.html'>Acerca de</a></li>
+                                <li><a href='privacity.html'>Privacidad</a></li>
+                                <li><a href='contacto.html'> Contacto </a></li>
+                                <li><a href='index.html'> Inicio</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <label>Otros sitios</label>
+                            <ul>
+
+                                <li><a href='#'>Twicky Games</a></li>
+                                <li><a href='http://www.twicky.com.mx/lab'>Twicky Lab</a></li>
+                                <li><a href='http://www.twicky.com.mx'>Twicky</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class='glob-footer-footer'>
+                            <label> &#169; Twicky 2017</label>
+                        </div>
+                    </div>
 		</footer>
 
 	</body>
 </html>
+<% } %>

@@ -1,4 +1,5 @@
- <%@page import="ADO.ComentarioADO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="ADO.ComentarioADO"%>
 <%@page import="VO.Comentario"%>
 <%@page import="java.util.List"%>
 <%@page import="ADO.UsuarioADO"%>
@@ -13,11 +14,13 @@
     Integer id = 0;
     Video video = null;
     Usuario usuario = null;
+    List<Video> videosRelacionados = new ArrayList<Video>();
     id = Util.StringTryParsetoInt(idString);
     if(id != null){
         video = VideoADO.Obtener(id);
         if(video != null){
             usuario = UsuarioADO.Obtener(video.fk_usuario);
+            videosRelacionados = VideoADO.ObtenerVideosRecientes();
         }
     }
     Usuario usuarioSession = (Usuario) session.getAttribute("usuario");
@@ -115,66 +118,18 @@
 					</div>
 				</div>
 				
-                                        <!--
-					<div class='vid-main vid-recomended'>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					<span class='dbd-start-span'>
-						<a href='video.html?video=resources/video/video_01.mp4' class='dbd-start-video-label'>
-							<img onclick='' class='dbd-start-video-label-content' src='resources/images/video_01.png'/>
-							<label class='dbd-start-video-label-title'> There's A Cat Licking Your Birthday Cake </label>
-							<label class='dbd-start-video-label-user'> Parrygripp </label> 
-						</a>
-					</span>
-					
-				</div>-->
+                                        
+                                <div class='vid-main vid-recomended'>
+                                    <% for(Video v : videosRelacionados){ %>
+                                    <span class='dbd-start-span'>
+                                        <a href='video.jsp?id=<%= v.id_video %>' class='dbd-start-video-label'>
+                                            <img class='dbd-start-video-label-content' src='<%= v.pathVistaPrevia %>'/>
+                                            <label class='dbd-start-video-label-title'><%= v.titulo %></label>
+                                            <label class='dbd-start-video-label-user'> <%= v.fk_usuario %> </label> 
+                                        </a>
+                                    </span>
+                                    <% } %>
+				</div>
 			</div>
 			
 			
