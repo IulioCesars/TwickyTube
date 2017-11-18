@@ -26,7 +26,15 @@ class jsUtil{
         }
         
         static Suscribirse(id_usuario){
-            this.Ajax("Suscribirse", id_usuario, (result)=>{ alert(result); });
+            this.Ajax("Suscribirse", id_usuario, (result)=>{ 
+                if(result == "Seguir"){
+                    $("#btnSuscribirse").css("background-color","#ff0000");
+                    $("#btnSuscribirse").html('Dejar de seguir');
+                }else{
+                    $("#btnSuscribirse").css("background-color","#3090B0");
+                    $("#btnSuscribirse").html('Seguir');
+                }
+            });
         }
         
         static MeGusta(id_video){
@@ -82,5 +90,11 @@ class jsUtil{
                     }   
                 }
             );
+        }
+        
+        static Compartir(id_video){
+            this.Ajax("Compartir", id_video, (result)=>{ 
+                alert(result);
+            });
         }
 }

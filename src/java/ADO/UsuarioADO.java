@@ -111,4 +111,14 @@ public class UsuarioADO {
             }
             return resultado;
         }
+    
+    public static boolean BuscarSeguidor(String remitente, String destinatario){
+        //BuscarSeguidor
+        boolean resultado = false;
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("BuscarSeguidor", new Object[]{ remitente, destinatario });
+        if(dicResul.size()>0){
+            resultado = true;
+        }
+        return resultado;
+    }
 }

@@ -8,6 +8,7 @@ package VO;
 
 import Helpers.Diccionario;
 import Helpers.Util;
+import com.mysql.jdbc.StringUtils;
 import java.sql.Timestamp;
 
 /**
@@ -29,6 +30,8 @@ public class Video extends EntidadGenerica
     public int vistas;
     public int megusta;
     
+    public String compartido;
+    
     public Video()
     {
     
@@ -46,6 +49,10 @@ public class Video extends EntidadGenerica
         this.contentTypeVideo = (String) super.ObtenerValor(vid.elementos.get("contentTypeVistaPrevia"));
         this.vistas = (int) super.ObtenerValor(vid.elementos.get("vistas"));
         this.megusta = Integer.parseInt(vid.elementos.get("megusta") == null ? "0" : vid.elementos.get("megusta").toString());
+        
+        if(vid.elementos.get("UsuarioCompartio")!= null){
+            this.compartido = (String) super.ObtenerValor(vid.elementos.get("UsuarioCompartio")); 
+        }
     }
     
     public String toHTML(){

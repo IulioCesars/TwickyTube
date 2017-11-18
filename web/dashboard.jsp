@@ -21,10 +21,12 @@
     List<Video> videosRecientes = VideoADO.ObtenerVideosRecientes();
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     List<Video> videosFavoritos = new ArrayList<Video>();
-    List<Video> videosCanalFavorito = new ArrayList<Video>();
+    List<Video> videosCanalFavorito = new ArrayList<Video>();    
+    List<Video> videosCompartidos = new ArrayList<Video>();
     if(usuario != null){
         videosFavoritos = VideoADO.ObtenerFavoritos(usuario.id_usuario);
         videosCanalFavorito = VideoADO.ObtenerVideosCanalFavorito(usuario.id_usuario);
+        videosCompartidos = VideoADO.ObtenerVideosCompartidosPorCanalFavorito(usuario.id_usuario);
     }
 
 %>
@@ -67,6 +69,14 @@
                             <label class='idx-login-gen-label dbd-start-title'> Top Favoritos </label>
                         <% } %>
                         <% for(Video v : videosFavoritos){%>
+                        <%= v.toHTML() %>
+                        <% } %>
+                    </div>
+                    <div class='dbd-start'>
+                        <% if(videosCompartidos.size() > 0 ){ %>
+                            <label class='idx-login-gen-label dbd-start-title'> Compartidos por los canales que sigues </label>
+                        <% } %>
+                        <% for(Video v : videosCompartidos){%>
                         <%= v.toHTML() %>
                         <% } %>
                     </div>
