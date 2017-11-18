@@ -170,6 +170,23 @@ public class VideoADO
         return resultado;
     }
     
+    public static List<Video> ObtenerVideosCompartidosPorCanalFavorito(String id_usuario){
+        List<Video> resultado = new ArrayList<Video>();
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("ObtenerVideosCompartidosPorCanalFavorito", new Object[]{ id_usuario });
+        if(dicResul.size()>0){
+            for(Diccionario d : dicResul){
+                try{
+                    resultado.add( new Video(d));
+                }
+                catch(Exception ex){
+                
+                }
+            }
+        }
+        
+        return resultado;
+    }
+    
     public static List<Video> BuscarVideos(String Filtro, String fInicio, String fFinal){
         List<Video> resultado = new ArrayList<Video>();
         Timestamp tsInicio = Helpers.Util.convertStringToTimestamp(fInicio);      
@@ -205,6 +222,15 @@ public class VideoADO
     public static void CrearVideo(Video video)
     {
         
+    }
+    
+    public static boolean BuscarLike(String id_usuario, int video){
+        boolean resultado = false;
+        List<Diccionario> dicResul = Pool.EjecutarStoredProcedure("BuscarMeGusta", new Object[]{ id_usuario, video });
+        if(dicResul.size()>0){
+            resultado = true;
+        }
+        return resultado;
     }
 }
 

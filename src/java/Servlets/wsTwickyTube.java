@@ -7,6 +7,8 @@ package Servlets;
 
 import ADO.AjaxADO;
 import ADO.ComentarioADO;
+import ADO.CompartidoADO;
+import Helpers.Util;
 import VO.Comentario;
 import VO.Usuario;
 import com.mysql.jdbc.StringUtils;
@@ -31,10 +33,11 @@ public class wsTwickyTube extends HttpServlet {
         String Resultado = "";
         if(usuario != null)
             switch(Action){
-                case "Suscribirse" : { Resultado = AjaxADO.Suscribirse(Parametro, usuario.id_usuario); break;}
+                case "Suscribirse" : { Resultado = AjaxADO.Suscribirse(usuario.id_usuario, Parametro); break;}
                 case "MeGusta" : { Resultado = AjaxADO.MeGusta(usuario.id_usuario, Parametro);  break;}            
                 case "Reportar" : {  break;}
                 case "Favorito" : {  Resultado = AjaxADO.Favorito(usuario.id_usuario, Parametro); break;}
+                case "Compartir" : {  Resultado = CompartidoADO.Compartir( Util.StringTryParsetoInt(Parametro), usuario.id_usuario); break;}
                 case "Comentario": { 
                     String comentario = request.getParameter("comentario");
                     if(StringUtils.isEmptyOrWhitespaceOnly(comentario)){

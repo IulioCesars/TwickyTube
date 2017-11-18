@@ -3,20 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/VO/Video.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/perfil.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/web/reportes.jsp</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/Helpers/Rutas.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/VO/Reporte.java</file>
-            <file>file:/C:/TOMCAT/RepoPAPW/TwickyTube/src/java/ADO/ReporteADO.java</file>
-=======
-            <file>file:/C:/GitKraken/TwickyTube/web/js/jsUtil.js</file>
-            <file>file:/C:/GitKraken/TwickyTube/src/java/VO/Video.java</file>
-            <file>file:/C:/GitKraken/TwickyTube/src/java/ADO/VideoADO.java</file>
-            <file>file:/C:/GitKraken/TwickyTube/web/video.jsp</file>
-            <file>file:/C:/GitKraken/TwickyTube/src/java/VO/EntidadGenerica.java</file>
->>>>>>> master
+            <file>file:/C:/GitKraken/TwickyTube/web/dashboard.jsp</file>
+            <file>file:/C:/GitKraken/TwickyTube/src/java/VO/Usuario.java</file>
         </group>
     </open-files>
 </project-private>

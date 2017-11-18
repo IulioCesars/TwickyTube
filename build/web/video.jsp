@@ -25,7 +25,8 @@
 %>
 
 <% if(  video != null 
-        && usuario != null) {%>
+        && usuario != null) {
+%>
 
 <!DOCTYPE html>
 <html>
@@ -59,20 +60,32 @@
                                                         <label> <%= video.descripcion %> </label>
 
                                                         <% if(usuarioSession != null
-                                                                && usuarioSession.id_usuario != usuario.id_usuario) {%>
-							<button type='button' class='vid-main-sub-button' onclick='jsUtil.Suscribirse("<%= usuario.id_usuario %>")'> Suscribirse </button>
+                                                                && usuarioSession.id_usuario != usuario.id_usuario) {
+                                                                boolean seguir =  false;
+                                                                seguir = UsuarioADO.BuscarSeguidor(usuarioSession.id_usuario, usuario.id_usuario);
+                                                                
+                                                                String textoSubs = seguir ? "Dejar de seguir" : "Suscribirse" ;
+                                                                String cssSubs = seguir ? "style='background-color:#ff0000;'" : "";
+                                                        %>
+							<button type='button' id="btnSuscribirse" class='vid-main-sub-button' <%= cssSubs %> onclick='jsUtil.Suscribirse("<%= usuario.id_usuario %>")'>
+                                                            <%= textoSubs %>
+                                                        </button>
                                                         <% } %>
 						</span>
 						<span class='vid-main-subcontent vid-main-like'>
                                                         <% if(usuarioSession != null
-                                                                    && usuarioSession.id_usuario != usuario.id_usuario) {%>
-                                                            
+                                                                    && usuarioSession.id_usuario != usuario.id_usuario) {
+                                                                boolean megusta = false;
+                                                                megusta = VideoADO.BuscarLike(usuarioSession.id_usuario, video.id_video);
+                                                        %>
+                                                        
+                                                        <button class='vid-main-like-button' title='Compartir'onclick="jsUtil.Compartir(<%= video.id_video %>)" ><img src='resources/images/Compartir.png'> </button>                                                            
                                                         <button class='vid-main-like-button' title='Reportar' onclick="jsUtil.Reportar(<%= video.id_video %>)" ><img src='resources/images/report_01.png'> </button>
                                                         <label id="lblLike" class='vid-main-like-label'><%= video.megusta %></label>
-                                                        <button class='vid-main-like-button' title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img id="btnLike" src='resources/images/like_01.png'> </button>
+                                                        <button class='vid-main-like-button' title='Me gusta' onclick="jsUtil.MeGusta(<%= video.id_video %>)" ><img id="btnLike" src='resources/images/<%if(!megusta) {%>like_01.png<% } else {%>dislike_01.png <% } %>' > </button>
                                                         <!--<label class='vid-main-like-label'>9M</label>-->
 							<button class='vid-main-like-button' title='Favoritos'onclick="jsUtil.Favorito(<%= video.id_video %>)" ><img src='resources/images/favorites_01.png'> </button>
-                                                        
+
                                                         <% } %>
                                                 </span>
                                                 <span class='vid-main-subcontent vid-main-like vid-main-like-visitas'>
