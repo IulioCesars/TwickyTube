@@ -25,7 +25,8 @@
                             <label onclick="location='perfil.jsp'" class='glob-header-menu glob-object-submit-right glob-label-user'>
                                 <%= usuario.id_usuario %>
                             </label>
-                            <button type='button' onclick="mostrar_header('MENU-OPC-01');" class='glob-header-avatar-button glob-object-submit-right' type='button'> 
+                            <!--onclick="mostrar_header('MENU-OPC-01');"-->
+                            <button type='button'  class='glob-header-avatar-button glob-object-submit-right' type='button'> 
                                     <img  class='glob-header-avatar-img' src='MostrarAvatar?id=<%= usuario.id_usuario %>'/>
                             </button>
                             <img class='glob-header-upload glob-object-submit-right' src='resources/images/upload.png' onclick="location='upload.jsp'">

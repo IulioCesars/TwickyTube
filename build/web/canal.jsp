@@ -65,7 +65,13 @@
                                 <img class='cvs-avatar' src='MostrarAvatar?id=<%=id%>'>
                                 <label class='cvs-avatar-name'> <a> <%=usuario.id_usuario%> </a> </label>
                                
-                                <button onclick='mostrar_mensaje()' class='cvs-button'> Reportar </button>
+                                <!--
+                                <form>
+                                    <input class='cvs-button cvs-button-reportar' type='hidden' value="<%=usuario.id_usuario%>">
+                                    <button class='cvs-button cvs-button-seguir cvs-button-reportar'> Seguir </button>
+                                </form>
+                                    -->
+                                <button onclick='mostrar_mensaje()' class='cvs-button cvs-button-reportar'> Reportar </button>
                                 
                             </div>
                             

@@ -50,10 +50,10 @@ and open the template in the editor.
     
     text-shadow: 3px 3px 1.5px #454545;
 }
+
 .cvs-button
 {
-    bottom:0px;
-    right:10px;
+   
     position:absolute;
     cursor:pointer;
     border-radius:3px;
@@ -65,4 +65,19 @@ and open the template in the editor.
     padding:1%;
     box-sizing: border-box;
     
+}
+.cvs-button:hover
+{
+    background-color:#c0392b;
+}
+.cvs-button-reportar
+{
+    bottom:10px;
+    right:10px;
+}
+.cvs-button-seguir
+{
+   
+    bottom:10px;
+    right:150px;
 }
