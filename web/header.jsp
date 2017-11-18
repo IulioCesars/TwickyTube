@@ -45,10 +45,12 @@
                 <% if(usuario != null) {%>
 		<li><a href='canal.jsp?id=<%= usuario.id_usuario %>'> Mi canal </a></li>
 		<li><a href='perfil.jsp'> Mi perfil </a></li>
-		<li><a href='favoritos.jsp'> Favoritos </a></li>
-                <li><a href='reportes.jsp'> Reportes de usuarios </a></li>
-		<li><a href='subscripciones.jsp'> Subscripciones </a></li>
-		<li><a href='subscriptores.jsp'> Subscriptores </a></li>
+		<li><a href='favoritos.jsp?id=<%= usuario.id_usuario %>'> Favoritos </a></li>
+                <% if(usuario.perfil == "Admin") { %>
+                    <li><a href='reportes.jsp'> Reportes de usuarios </a></li>
+                <% } %>
+		<!--<li><a href='subscripciones.jsp'> Subscripciones </a></li>-->
+		<!--<li><a href='subscriptores.jsp'> Subscriptores </a></li>-->
 		<li><a href='CerrarSesion'> Cerrar sesión </a></li>
                 <% } %>
 	</ul>
