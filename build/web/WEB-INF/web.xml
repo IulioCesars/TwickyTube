@@ -29,16 +29,20 @@
         <servlet-class>Servlets.EditarUsuario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>reportes</servlet-name>
-        <servlet-class>Servlets.reportes</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>CerrarSesion</servlet-name>
         <servlet-class>Servlets.CerrarSesion</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Busqueda</servlet-name>
         <servlet-class>Servlets.Busqueda</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminReportar</servlet-name>
+        <servlet-class>Servlets.AdminReportar</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReporteBloqueadoADO</servlet-name>
+        <servlet-class>ADO.ReporteBloqueadoADO</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
@@ -69,16 +73,20 @@
         <url-pattern>/EditarUsuario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>reportes</servlet-name>
-        <url-pattern>/reportes</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>CerrarSesion</servlet-name>
         <url-pattern>/CerrarSesion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Busqueda</servlet-name>
         <url-pattern>/Busqueda</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminReportar</servlet-name>
+        <url-pattern>/AdminReportar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReporteBloqueadoADO</servlet-name>
+        <url-pattern>/ReporteBloqueadoADO</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

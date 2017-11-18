@@ -1,3 +1,4 @@
+<%@page import="Helpers.Respuestas"%>
 <%@page import="VO.Reporte"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
@@ -19,8 +20,9 @@
     {
         orden = "ASC";
         limite1 = 0;
-        limite2 = 5;
+        limite2 = 1;
         clasificacion = "Para todo publico";
+        Respuestas.setRespuestaAdminReportar("");
     }
     
     
@@ -35,7 +37,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Acerca des </title>
+		<title> Reporte para bloquear</title>
 		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href='css/glob-style.css?v=1' type='text/css' rel='stylesheet'>
@@ -151,7 +153,7 @@
                                 <section id='rep-registros'>
                                 
                                      <% for(Reporte r : lista_reporte){%>
-                                        <%= r.ImprimeRegistrotoHTML() %>
+                                        <%= r.Mostrar_lista_para_bloquear() %>
                                     <% } %>
                                     
                                     <!--
@@ -227,6 +229,7 @@
                             </div>
                         </div>
                 </section>
+                <%= Respuestas.getRespuestaAdminReportar() %>
 		<jsp:include page="footer.jsp" flush="true" />
 
 	</body>

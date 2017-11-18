@@ -1,5 +1,5 @@
 <%@page import="Helpers.Respuestas"%>
-<%@page import="VO.Reporte"%>
+<%@page import="VO.ReporteBloqueado"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
@@ -21,12 +21,12 @@
         orden = "ASC";
         limite1 = 0;
         limite2 = 1;
-        clasificacion = "Para todo publico";
+        clasificacion = "Fecha de bloqueo";
         Respuestas.setRespuestaAdminReportar("");
     }
     
     
-    List<Reporte> lista_reporte = ReporteADO.mostrar_reportes
+    List<ReporteBloqueado> lista_reporte = ReporteADO.mostrar_bloqueados
         (
                orden, 
                limite1, 
@@ -37,11 +37,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Reporte para bloquear</title>
+		<title> Reporte bloqueados </title>
 		<meta charset='utf-8'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href='css/glob-style.css?v=1' type='text/css' rel='stylesheet'>
 		<link href='css/idx-style.css?v=1.1' type='text/css' rel='stylesheet'>
+                <link href='css/block-style.css?v=1.1' type='text/css' rel='stylesheet'>
 		<script type="text/javascript" src="js/idx-js.js"></script>
                 <script src='js/jquery-3.2.1.min.js'></script>
                 <script>
@@ -63,7 +64,7 @@
                             limiteS = 1;
                         }
                         
-                        window.location = 'reportes.jsp?orden=' + ordenS + '&pi=' + pi + '&pf=' + limiteS + '&tipo=' + tipoS ;
+                        window.location = 'reporte-bloqueado.jsp?orden=' + ordenS + '&pi=' + pi + '&pf=' + limiteS + '&tipo=' + tipoS ;
                     }
                     function siguiente()
                     {
@@ -77,7 +78,7 @@
                         pi = parseInt(pi) + parseInt(limiteS);
                         limiteS = parseInt(pi) + parseInt(limiteS);
                         
-                        window.location = 'reportes.jsp?orden=' + ordenS + '&pi=' + pi + '&pf=' + limiteS + '&tipo=' + tipoS ;
+                        window.location = 'reporte-bloqueado.jsp?orden=' + ordenS + '&pi=' + pi + '&pf=' + limiteS + '&tipo=' + tipoS ;
                     }
                     function filtros()
                     {
@@ -91,7 +92,7 @@
                         
                         var tipoS = document.getElementById('rep-sel-tipo').value;
                         
-                        window.location = 'reportes.jsp?orden=' + ordenS + '&pi=' + pi + '&pf=' + limiteS + '&tipo=' + tipoS ;
+                        window.location = 'reporte-bloqueado.jsp?orden=' + ordenS + '&pi=' + pi + '&pf=' + limiteS + '&tipo=' + tipoS ;
                     }
                     /*
                     $(document).ready(function()
@@ -114,15 +115,14 @@
                             <div class='dbd-start'>
                                 <section id='reg-header'>
                                     <label class='idx-login-gen-label dbd-start-title rep-head'> 
-                                        <label class='rep-head-title'> Usuarios reportados </label>
+                                        <label class='rep-head-title'> Usuarios bloqueados </label>
                                         <label class='rep-head-filter'>
                                             <label>
                                                 Filtrar por:
                                                 <select class='rep-head-objects' id='rep-sel-tipo'>
-                                                    <option>Para todo publico</option>
-                                                    <option>Para mayores de 13</option>
-                                                    <option>Para mayores de 15</option>
-                                                    <option>Para mayores de 18</option>
+                                                    <option>Fecha de bloqueo</option>
+                                                    <option>Usuario</option>
+                                                    <option>Normal</option>
                                                 </select>
                                             </label>
                                             <label>
@@ -152,9 +152,10 @@
                                 </section>
                                 <section id='rep-registros'>
                                 
-                                     <% for(Reporte r : lista_reporte){%>
-                                        <%= r.Mostrar_lista_para_bloquear() %>
+                                    <% for(ReporteBloqueado r : lista_reporte){%>
+                                        <%= r.Mostrar_lista_de_bloqueados() %>
                                     <% } %>
+
                                     
                                     <!--
                                     <span class='rep-body-row'>
