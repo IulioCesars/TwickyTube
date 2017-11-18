@@ -98,6 +98,43 @@ public class Reporte extends EntidadGenerica
 
                             "<span class='rep-body-row-reporte'><strong>Reporte: </strong> "+this.comentarioReporte+" </span>" +
                         "</article>" +
+                    "</span>"+
+                "</form>";
+
+    }
+     
+      public String Mostrar_lista_para_bloquear_con_video()
+     {
+        return  "<form action='AdminReportar'>" +
+                    "<input name='"+Reporte.BD_INDEX.id_bloqueo+"' type='hidden' value='"+this.id_bloqueo+"'/>" +
+                    "<span class='rep-body-row'>" +
+                        "<img class='rep-body-row-image' src='MostrarAvatar?id="+this.fk_usuario+"'>" +
+
+                        "<article class='rep-body-row-row'>" +
+                            "<span class='rep-body-row-tipoPost'><strong>Tipo de post: </strong> "+this.descripcion +" </span>" +
+                            "<section>" +
+                                "<label class='rep-body-row-date-title'> <strong>Bloquear hasta:</strong> </label>" +
+                                "<input name='"+Reporte.BD_INDEX.fechaBloqueo+"' required class='ipt-date rep-body-row-date' type='date' min='2017-11-18' value='2017-11-18' />" +
+                                "<label class='rep-body-row-date-checkbox'><strong>Indefinido - </strong><input name='"+Reporte.BD_INDEX.indefinido+"' class='chk-indefinido' type=\"checkbox\" value='1' checked=\"checked\"/></label>" +
+                            "</section>" +
+                        "</article>" +
+                        "<article class='rep-body-row-row'>" +
+                            "<label class='rep-body-row-user'> <strong>Usuario:</strong> "+ this.fk_usuario +"</label>" +
+                            "<label class='rep-body-row-date-title'> <strong>Razon de bloqueo:</strong> </label>" +
+                            "<select name='"+Reporte.BD_INDEX.fk_razonBloqueo+"' class='rep-body-row-date-razon'> " +
+                            "   <option value='1'>Marcado con clasificacion incorrecta </option>" +
+                                "<option value='2'>Lenguaje no apropiado </option>" +
+                                "<option value='3'>Demasiada sangre </option>" +
+                                "<option value='4'>Contenido para adultos </option>" +
+                            "</select>" +
+                        "</article>" +
+                        "<article class='rep-body-row-row'>" +
+
+                            "<button class='rep-body-row-date-button' type='submit'> Bloquear </button>" +
+                            "<label class='rep-body-row-input'><input name='"+Reporte.BD_INDEX.comentarioBloqueo+"' required class='' type='text' placeholder='Escribe aqui un comentario para el usuario'/></label>" +
+
+                            "<span class='rep-body-row-reporte'><strong>Reporte: </strong> "+this.comentarioReporte+" </span>" +
+                        "</article>" +
                         "<article class='rep-body-row-row'>" +
                             "<span class='rep-body-row-post'>" +
                             "    <strong class='rep-body-row-post-title'>Post: </strong> " +
@@ -111,6 +148,5 @@ public class Reporte extends EntidadGenerica
 
     }
      
-    
      
 }
