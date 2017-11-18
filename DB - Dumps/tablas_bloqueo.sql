@@ -30,6 +30,7 @@ create table bloqueo
     fk_razonBloqueo		int not null default 1,
     comentarioReporte	text,
     comentarioBloqueo	text,
+    bloqueado			boolean default 0,
     
     constraint bloqueo_usuario 	foreign key (fk_usuario) 			references usuario(id_usuario),
     constraint bloqueo_video	foreign key (fk_video)				references video(id_video),

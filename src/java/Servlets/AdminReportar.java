@@ -5,7 +5,11 @@
  */
 package Servlets;
 
+import ADO.ReporteADO;
+import Helpers.Respuestas;
 import Helpers.Rutas;
+import Helpers.Util;
+import VO.Reporte;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -17,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author esteban.carranza
  */
-public class reportes extends HttpServlet {
+public class AdminReportar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,23 +32,36 @@ public class reportes extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet reportes</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet reportes at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            
-             request.getRequestDispatcher(Rutas.Reportes).forward(request, response);
+        
+        
+        
+        
+        Reporte rep = new Reporte();
+        
+        rep.id_bloqueo = Integer.parseInt(request.getParameter(Reporte.BD_INDEX.id_bloqueo));
+        rep.fk_razonBloqueo = Integer.parseInt(request.getParameter(Reporte.BD_INDEX.fk_razonBloqueo));
+        rep.fechaBloqueo = Util.convertStringToTimestamp(request.getParameter(Reporte.BD_INDEX.fechaBloqueo));
+        rep.indefinido = Boolean.parseBoolean(request.getParameter(Reporte.BD_INDEX.indefinido));
+        rep.comentarioBloqueo = request.getParameter(Reporte.BD_INDEX.comentarioBloqueo);
+        
+        String resultado = ReporteADO.reportar(rep);
+        
+        if(resultado == "OK")
+        {
+            Respuestas.setRespuestaAdminReportar(Respuestas.AdminReportar.correcto);
+            request.getRequestDispatcher(Rutas.Reportes).forward(request, response);
         }
+        else
+        {
+            Respuestas.setRespuestaAdminReportar(Respuestas.AdminReportar.fallo);
+            request.getRequestDispatcher(Rutas.Reportes).forward(request, response);
+        }
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
