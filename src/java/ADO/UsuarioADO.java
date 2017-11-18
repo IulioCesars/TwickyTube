@@ -7,6 +7,7 @@ package ADO;
 import Helpers.Pool;
 import Helpers.Diccionario;
 import VO.Usuario;
+import VO.UsuarioPublico;
 import VO.Video;
 import java.io.IOException;
 import java.sql.Blob;
@@ -94,4 +95,20 @@ public class UsuarioADO {
         }
         return resultado;
     }
+    
+        public static UsuarioPublico ObtenerInfo(int id)
+        {
+            UsuarioPublico resultado =  null;
+            List<Diccionario> dicResult = Pool.EjecutarStoredProcedure
+            (
+                "ObtenerUsuario", 
+                new Object[]
+                { 
+                    id
+                });
+            if(dicResult.size()>0){
+                resultado = new UsuarioPublico(dicResult.get(0));
+            }
+            return resultado;
+        }
 }

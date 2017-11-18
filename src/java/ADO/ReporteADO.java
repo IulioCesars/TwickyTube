@@ -19,6 +19,21 @@ import java.util.List;
 public class ReporteADO {
 
 
+    public static String UsuarioReportaUsuario(String id, String comentarioReporte)
+    {
+        String resultado = "";
+         resultado = (String) Pool.EjecutarStoredProcedureSimple
+        (   
+            "UsuarioReporta", 
+            new Object[] { 
+                            id,
+                            comentarioReporte
+                        });
+
+      
+        return resultado;
+    }
+    
     public static String reportar(Reporte rep)
     {
         String resultado = "";

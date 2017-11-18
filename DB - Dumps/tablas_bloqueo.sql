@@ -22,7 +22,7 @@ create table bloqueo
 (
 	id_bloqueo 			int not null primary key auto_increment,
     fk_usuario 			varchar(50) not null,
-    fk_video 			int not null,
+    fk_video 			int not null default -1,
     fk_tipoPost 		int not null default 1,
     fechaReporte 		timestamp default current_timestamp,
     fechaBloqueo		date,

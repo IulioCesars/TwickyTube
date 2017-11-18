@@ -44,6 +44,10 @@
         <servlet-name>ReporteBloqueadoADO</servlet-name>
         <servlet-class>ADO.ReporteBloqueadoADO</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportarUsuario</servlet-name>
+        <servlet-class>Servlets.ReportarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ReporteBloqueadoADO</servlet-name>
         <url-pattern>/ReporteBloqueadoADO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportarUsuario</servlet-name>
+        <url-pattern>/ReportarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

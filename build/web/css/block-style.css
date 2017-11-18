@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/11/2017, 11:01:43 PM
+    Author     : esteban.carranza
+*/
+.bs-color-red
+{
+    color:red;
+}
+.bs-floatL-block-100-calc
+{
+    float:left;
+    background-color:red;
+    padding:1%;
+    width:calc(100% - 100px);
+    box-sizing: border-box;
+}
+.bs-floatL-block-100
+{
+    
+    overflow: auto;
+    background-color:blue;
+    
+    width:100%;
+    box-sizing: border-box;
+}
+.bs-floatL-block-50
+{
+    overflow:auto;
+    float:left;
+    background-color:green;
+    padding:1%;
+    width:50%;
+    box-sizing: border-box;
+}
+.bs-block-50
+{
+    padding:1%;
+    width:50%;
+    box-sizing: border-box;
+}
+.bs-block-25
+{
+    padding:1%;
+    width:50%;
+    box-sizing: border-box;
+}

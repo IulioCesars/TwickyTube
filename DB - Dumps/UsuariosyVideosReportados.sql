@@ -15,7 +15,7 @@ begin
 			inner join video as vid on vid.id_video = bl.fk_video
 			inner join usuario as us on us.id_usuario = bl.fk_usuario
 			inner join tipoPost as tp on tp.idTipoPost = bl.fk_tipoPost
-            where !bl.bloqueado
+            where !bl.bloqueado and bl.fk_video > 0
 			order by
 				case when U_campo = 'Para todo publico'		then bl.fk_usuario end asc,
 				case when U_campo = 'Para mayores de 13' 	then bl.fk_usuario end asc,
@@ -34,7 +34,7 @@ begin
 			inner join video as vid on vid.id_video = bl.fk_video
 			inner join usuario as us on us.id_usuario = bl.fk_usuario
 			inner join tipoPost as tp on tp.idTipoPost = bl.fk_tipoPost
-            where !bl.bloqueado
+            where !bl.bloqueado and bl.fk_video > 0
 			order by
 				case when U_campo = 'Para todo publico'		then bl.fk_usuario end desc,
 				case when U_campo = 'Para mayores de 13' 	then bl.fk_usuario end desc,

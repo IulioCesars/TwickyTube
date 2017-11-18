@@ -21,10 +21,10 @@ and open the template in the editor.
 }
 .bs-floatL-block-100
 {
+    
     overflow: auto;
-    float:left;
     background-color:blue;
-    padding:1%;
+    
     width:100%;
     box-sizing: border-box;
 }

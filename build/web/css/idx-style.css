@@ -847,12 +847,24 @@
 }
 .upl-finish-upload
 {
+   animation-duration: 1s;
+    animation-name: zoomin;
     top:0px;
     float:top;
     position:fixed;
     background-color:rgba(1,1,1,0.1);   
     height: 100%;
     width:100%;
+    z-index:100;
+}
+@keyframes zoomin {
+  from {
+    scale(0);
+  }
+
+  to {
+    scale(1);
+  }
 }
 .upl-finish-upload-label
 {
