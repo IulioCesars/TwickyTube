@@ -6,6 +6,8 @@
 package ADO;
 import Helpers.Pool;
 import Helpers.Diccionario;
+import Helpers.Respuestas;
+import Helpers.Rutas;
 import VO.Usuario;
 import VO.UsuarioPublico;
 import VO.Video;
@@ -17,12 +19,25 @@ import java.util.List;
  *
  * @author IulioCesar
  */
+
 public class UsuarioADO {
     public static Usuario IniciarSesion(String usuario, String contraseña){
         Usuario resultado = null;
+        
         List<Diccionario> dicResult = Pool.EjecutarStoredProcedure("IniciarSesion", new Object[]{usuario, contraseña});
         if(dicResult.size()>0){
-            resultado = new Usuario(dicResult.get(0));
+            if((dicResult.get(0).elementos.getOrDefault("result", "")).equals("OK"))
+            {
+                Respuestas.setRespuesta("OK", Respuestas.estado_alerta.Correcto);
+                resultado = new Usuario(dicResult.get(0));    
+            }
+            else
+            {
+                Respuestas.setRespuesta(dicResult.get(0).elementos.getOrDefault("result", "").toString(), Respuestas.estado_alerta.Error);
+                
+                resultado = new Usuario(Respuestas.getRespuesta());
+            }
+            
         }
         return resultado;
     }

@@ -29,12 +29,23 @@ public class IniciarSesion extends HttpServlet {
         }
         
         Usuario usuario = UsuarioADO.IniciarSesion(correo, contraseña);
-     
-        if(usuario != null){
-            request.getSession(true).setAttribute("usuario", usuario);
-            response.sendRedirect(Rutas.Dashboard);
+        
+        if(usuario != null)
+        {
+            if((Respuestas.getRespuesta()).equals("<labelidx-login-gen-label glob-alert-correct>OK</label>"))
+            {
+                 request.getSession(true).setAttribute("usuario", usuario);
+                response.sendRedirect(Rutas.Dashboard);    
+                
+            }
+            else
+            {
+               Respuestas.setRespuesta(Respuestas.getRespuesta(), Respuestas.estado_alerta.Error);
+                response.sendRedirect(Rutas.LoginIncorrecto);
+            }
+            
         }else{
-            Respuestas.setRespuesta(Respuestas.index.fallo, Respuestas.estado_alerta.Error);
+            //Respuestas.setRespuesta(Respuestas.index.fallo, Respuestas.estado_alerta.Error);
             response.sendRedirect(Rutas.LoginIncorrecto);
         }
             return;

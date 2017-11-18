@@ -26,11 +26,16 @@ public class Usuario extends EntidadGenerica{
     public Part partPortada;
     public String formato_portada;
     public String perfil;
-    
+    public String Mensaje = "";
     public Usuario(){
     
     }
     
+    public Usuario (String mes)
+    {
+        String Mensaje = mes;
+        
+    }
     public Usuario(Diccionario usr){
         this.id_usuario = (String) super.ObtenerValor(usr.elementos.get("id_usuario"));
         this.correo = (String) super.ObtenerValor(usr.elementos.get("correo"));

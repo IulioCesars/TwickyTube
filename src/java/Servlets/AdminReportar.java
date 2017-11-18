@@ -46,8 +46,18 @@ public class AdminReportar extends HttpServlet {
         rep.id_bloqueo = Integer.parseInt(request.getParameter(Reporte.BD_INDEX.id_bloqueo));
         rep.fk_razonBloqueo = Integer.parseInt(request.getParameter(Reporte.BD_INDEX.fk_razonBloqueo));
         rep.fechaBloqueo = Util.convertStringToTimestamp(request.getParameter(Reporte.BD_INDEX.fechaBloqueo));
-        rep.indefinido = Boolean.parseBoolean(request.getParameter(Reporte.BD_INDEX.indefinido));
         rep.comentarioBloqueo = request.getParameter(Reporte.BD_INDEX.comentarioBloqueo);
+        
+        String indef = request.getParameter(Reporte.BD_INDEX.indefinido);
+        
+        if(indef == "1")
+        {
+            rep.indefinido = true;
+        }
+        else
+        {
+            rep.indefinido = false;
+        }
         
         String resultado = ReporteADO.reportar(rep);
         
