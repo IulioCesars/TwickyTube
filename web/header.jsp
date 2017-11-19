@@ -27,7 +27,7 @@
                             </label>
                             <!--onclick="mostrar_header('MENU-OPC-01');"-->
                             <button type='button'  class='glob-header-avatar-button glob-object-submit-right' type='button'> 
-                                    <img  class='glob-header-avatar-img' src='MostrarAvatar?id=<%= usuario.id_usuario %>'/>
+                                    <img class='glob-header-avatar-img' src='MostrarAvatar?id=<%= usuario.id_usuario %>'/>
                             </button>
                             <img class='glob-header-upload glob-object-submit-right' src='resources/images/upload.png' onclick="location='upload.jsp'">
 			<% } %>
@@ -37,7 +37,7 @@
                             </button>
                         <% } %>
                         <div class='glob-header-search'>
-                                <button name = "btnBuscar" type='button' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
+                                <button name = "btnBuscar" type='submit' class='glob-header-search-button glob-header-avatar-button' type='button'><img class='glob-header-search-img' src='resources/images/search.png'/></button>
                                 <input name = "txtBusqueda" class='glob-header-search-input' type='search' placeholder='Buscar...' />
 			</div>
 		</form>
@@ -47,8 +47,9 @@
 		<li><a href='canal.jsp?id=<%= usuario.id_usuario %>'> Mi canal </a></li>
 		<li><a href='perfil.jsp'> Mi perfil </a></li>
 		<li><a href='favoritos.jsp?id=<%= usuario.id_usuario %>'> Favoritos </a></li>
-                <% if(usuario.perfil == "Admin") { %>
+                <% if((usuario.perfil).equals("Admin")) { %>
                     <li><a href='reportes.jsp'> Reportes de usuarios </a></li>
+                    
                 <% } %>
 		<!--<li><a href='subscripciones.jsp'> Subscripciones </a></li>-->
 		<!--<li><a href='subscriptores.jsp'> Subscriptores </a></li>-->

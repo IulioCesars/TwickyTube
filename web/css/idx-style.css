@@ -198,10 +198,14 @@
 	box-shadow: 		0px 0px 0px 0px rgba(0,0,0,0.0);
 	*/
 }
-.dbd-start-span
+.dbd-start-span-parche
 {
     min-height: 250px;
-    height:250px;
+    height:300px;
+}
+.dbd-start-span
+{
+    
 	float:left;
 	width:20%;
 	padding:1%;

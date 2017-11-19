@@ -23,7 +23,8 @@ begin
 			begin
 				declare U_contrasenia varchar(50);
 				set U_contrasenia = (SHA(_contraseña));
-				SELECT id_usuario, 
+				SELECT 	'OK' as result,
+						id_usuario, 
 						correo, 
 						contraseña, 
 						fecha_nacimiento, 

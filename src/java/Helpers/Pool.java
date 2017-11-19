@@ -19,7 +19,7 @@ public class Pool {
         protected static final String local_julio = "JULIO";
         
         //PARA CAMBIAR LA CONEXION, SOLO HAY QUE CAMBIAR EL VALOR DE "WHAT_HOST_USE"
-        protected static String WHAT_HOST_USE = host;
+        protected static String WHAT_HOST_USE = local_esteban;
         
         protected static  String db_host = "DB_TWICKYTUBE";
         protected static  String host_host = "twicky.com.mx";
@@ -27,7 +27,7 @@ public class Pool {
         protected static  String user_host = "twickytube";
         protected static  String pass_host = "twickytube"; //J1565970 
         
-        protected static String db_local_e = "twickytube";
+        protected static String db_local_e = "DB_TWICKYTUBE_RES_3";
         protected static String host_local_e = "localhost";
         protected static String url_local_e = "jdbc:mysql://"+ host_local_e +"/"+db_local_e;
         protected static String user_local_e = "root";

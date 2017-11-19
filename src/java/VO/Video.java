@@ -56,7 +56,7 @@ public class Video extends EntidadGenerica
     }
     
     public String toHTML(){
-        return "<span class='dbd-start-span'>\n" +
+        return "<span class='dbd-start-span dbd-start-span-parche'>\n" +
                     "<a href='video.jsp?id=" + this.id_video  +"' class='dbd-start-video-label'>\n" +
                         "<img class='dbd-start-video-label-content' src='" + this.pathVistaPrevia + "'/>\n" +
                         "<label class='dbd-start-video-label-title'> " + this.titulo + " </label>\n" +

@@ -48,20 +48,25 @@ public class AdminReportar extends HttpServlet {
         rep.fechaBloqueo = Util.convertStringToTimestamp(request.getParameter(Reporte.BD_INDEX.fechaBloqueo));
         rep.comentarioBloqueo = request.getParameter(Reporte.BD_INDEX.comentarioBloqueo);
         
-        String indef = request.getParameter(Reporte.BD_INDEX.indefinido);
-        
-        if(indef == "1")
+        if(request.getParameter(Reporte.BD_INDEX.indefinido) == null)
         {
             rep.indefinido = true;
         }
         else
         {
-            rep.indefinido = false;
+            if(request.getParameter(Reporte.BD_INDEX.indefinido).equals("1"))
+                rep.indefinido = true;
+            else
+                rep.indefinido = false;
+
         }
+            
+              
+        
         
         String resultado = ReporteADO.reportar(rep);
         
-        if(resultado == "OK")
+        if(resultado.equals("OK"))
         {
             Respuestas.setRespuestaAdminReportar(Respuestas.AdminReportar.correcto);
             request.getRequestDispatcher(Rutas.Reportes).forward(request, response);

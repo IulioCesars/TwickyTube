@@ -7,7 +7,8 @@ begin
         fk_razonBloqueo = U_fk_razonBloqueo,
 		comentarioBloqueo = U_comentarioBloqueo,
         indefinido = U_indefinido,
-        bloqueado = 1
+        bloqueado = 1,
+        fk_tipoPost = 3
 	where id_bloqueo = U_idBloqueo
 	;
     if row_count() > 0 then select 'ACTUALIZADO' as result;

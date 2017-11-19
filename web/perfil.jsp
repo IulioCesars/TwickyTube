@@ -58,9 +58,9 @@
                                                 Genero
                                             </label>
                                             <select required id='per-sel-genero' name='genero' class='glob-object-input habilita-deshabilita' disabled > 
-                                                <option selected hidden><% if(usuario.genero=="M")%>Masculino<% else %>Femenino</option>
-                                                <option>Masculino</option>
-                                                <option>Femenino</option>
+                                                <option selected hidden><% if(usuario.genero.equals("M"))%>Masculino<% else %>Femenino</option>
+                                                <option value='M'>Masculino</option>
+                                                <option value='F'>Femenino</option>
                                                 <!--<option> Prefiero no especificar </option>-->
                                             </select>						
                                         </span>
@@ -94,10 +94,12 @@
                                         </span>
 
                                         <span class='per-panel-input'>
+                                            <!--
                                             <label class='idx-login-gen-label idx-login-description'>
                                                 Contraseña 
                                             </label>
-                                            <input required id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='password' placeholder='Contraseña' disabled />
+                                            -->
+                                            <input required id='reg-psw-contrasenia-01' name='contrasenia' class='glob-object-input per-psw habilita-deshabilita' type='hidden' placeholder='Contraseña' disabled />
                                         </span>
                                         
                                         

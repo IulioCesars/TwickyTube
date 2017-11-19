@@ -18,12 +18,25 @@ import java.util.List;
  */
 public class CompartidoADO {
     public static String Compartir(int pVideo, String pUsuario){
-        String resultado = (String) Pool.EjecutarStoredProcedureSimple("CompartirVideo", 
-                                new Object[] { pVideo, pUsuario });
-        if(resultado == "OK")
+        List<Diccionario> resultado = Pool.EjecutarStoredProcedure
+        (
+                "CompartirVideo", new Object[] {pVideo, pUsuario}
+        );
+        /*if(resultado == "OK")
             return "Video Compartido";
         else
-            return "Error al compartir, intente mas tarde";
+            return "Error al compartir, intente mas tarde";*/
+        
+        if(resultado.size() > 0)
+        {
+            return resultado.get(0).elementos.get("result").toString();
+        }
+        else
+        {
+            return ":v";
+        }
+        
+        
     }
     
     public static List<Compartido> ObtenerVideosCompartidos(){

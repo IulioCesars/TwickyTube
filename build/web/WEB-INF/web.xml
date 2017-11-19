@@ -48,6 +48,10 @@
         <servlet-name>ReportarUsuario</servlet-name>
         <servlet-class>Servlets.ReportarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SubscriptoresADO</servlet-name>
+        <servlet-class>ADO.SubscriptoresADO</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CrearUsuario</servlet-name>
         <url-pattern>/CrearUsuario</url-pattern>
@@ -96,9 +100,13 @@
         <servlet-name>ReportarUsuario</servlet-name>
         <url-pattern>/ReportarUsuario</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SubscriptoresADO</servlet-name>
+        <url-pattern>/SubscriptoresADO</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            3000
         </session-timeout>
     </session-config>
     <welcome-file-list>
